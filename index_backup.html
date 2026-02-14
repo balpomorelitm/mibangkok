@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pablo's Bangkok</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+    <!-- Leaflet CSS for the Map -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@300;400;600&display=swap');
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #fafaf9; /* Stone-50 */
+            color: #292524; /* Stone-800 */
+        }
+
+        h1, h2, h3, .serif {
+            font-family: 'DM Serif Display', serif;
+        }
+
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 300px;
+            max-height: 400px;
+        }
+
+        #map {
+            height: 400px;
+            width: 100%;
+            z-index: 1;
+            border-radius: 0.75rem;
+        }
+
+        @media (min-width: 768px) {
+            .chart-container { height: 400px; }
+            #map { height: 500px; }
+        }
+
+        .custom-scroll::-webkit-scrollbar { width: 6px; }
+        .custom-scroll::-webkit-scrollbar-track { background: #f5f5f4; }
+        .custom-scroll::-webkit-scrollbar-thumb { background-color: #d6d3d1; border-radius: 20px; }
+
+        .card-hover:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+
+        .leaflet-popup-content-wrapper { border-radius: 0.5rem; padding: 0; overflow: hidden; }
+        .leaflet-popup-content { margin: 0; width: 280px !important; }
+    </style>
+</head>
+<body class="antialiased min-h-screen flex flex-col">
+
+    <!-- Navbar -->
+    <nav class="bg-stone-900 text-stone-50 py-4 px-6 shadow-md sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <div class="text-xl serif tracking-wider text-orange-500 cursor-pointer" onclick="window.scrollTo(0,0)">PABLO'S BANGKOK <span class="text-stone-300 font-light sans-serif text-sm ml-2 hidden sm:inline">Insider Guide</span></div>
+            <div class="text-sm font-light">
+                <span id="saved-count" class="bg-orange-600 text-white px-2 py-1 rounded-full text-xs font-bold mr-2">0</span> Saved
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="bg-stone-200 py-16 px-6 border-b border-stone-300 relative overflow-hidden">
+        <div class="max-w-4xl mx-auto text-center relative z-10">
+            <h1 class="text-4xl md:text-6xl text-stone-800 mb-6">Welcome to My Bangkok</h1>
+            <p class="text-lg md:text-xl text-stone-600 leading-relaxed mb-6">
+                I lived here for many years, and this city is my second home. This isn't a travel magazine list—these are the places I actually go to and love. 
+            </p>
+            <p class="text-md text-stone-500 italic mb-8">
+                "If you are unsure about anything or want a specific recommendation, just ask me. Enjoy the chaos!" — Pablo
+            </p>
+            <div class="flex justify-center gap-4">
+                <button onclick="scrollToSection('map-section')" class="bg-stone-800 hover:bg-stone-700 text-white px-6 py-3 rounded shadow transition flex items-center gap-2">
+                    <span>🗺️</span> Map
+                </button>
+                <button onclick="scrollToSection('explorer')" class="bg-white hover:bg-stone-50 text-stone-800 border border-stone-300 px-6 py-3 rounded shadow transition">
+                    The List
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Section: Interactive Map -->
+    <section id="map-section" class="py-12 px-6 bg-stone-100">
+        <div class="max-w-7xl mx-auto">
+            <div class="mb-6 text-center">
+                <h2 class="text-3xl text-stone-800 mb-2">Visual Explorer</h2>
+                <p class="text-stone-600 text-sm">Click on any pin to see photos and details.</p>
+            </div>
+            <div class="bg-white p-2 rounded-xl shadow-md border border-stone-200">
+                <div id="map"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section: The Explorer (Grid) -->
+    <section id="explorer" class="py-16 px-6 bg-stone-50 border-t border-stone-200">
+        <div class="max-w-7xl mx-auto">
+            <div class="mb-8 flex flex-col md:flex-row justify-between items-end gap-4">
+                <div>
+                    <h2 class="text-3xl text-stone-800 mb-2">The Directory</h2>
+                    <p class="text-stone-600 max-w-xl">
+                        Select a category to filter my recommendations.
+                    </p>
+                </div>
+                
+                <!-- Filters -->
+                <div class="flex flex-wrap gap-2" id="filter-container">
+                    <button class="filter-btn active bg-stone-800 text-white px-4 py-2 rounded-full text-sm transition" data-filter="all">All</button>
+                    <button class="filter-btn bg-white text-stone-600 border border-stone-300 hover:bg-stone-100 px-4 py-2 rounded-full text-sm transition" data-filter="Nightlife">Nightlife</button>
+                    <button class="filter-btn bg-white text-stone-600 border border-stone-300 hover:bg-stone-100 px-4 py-2 rounded-full text-sm transition" data-filter="Relax">Relax</button>
+                    <button class="filter-btn bg-white text-stone-600 border border-stone-300 hover:bg-stone-100 px-4 py-2 rounded-full text-sm transition" data-filter="Parks">Parks</button>
+                    <button class="filter-btn bg-white text-stone-600 border border-stone-300 hover:bg-stone-100 px-4 py-2 rounded-full text-sm transition" data-filter="Classics">Classics</button>
+                    <button class="filter-btn bg-white text-stone-600 border border-stone-300 hover:bg-stone-100 px-4 py-2 rounded-full text-sm transition" data-filter="Food">Food & Markets</button>
+                    <button class="filter-btn bg-white text-stone-600 border border-stone-300 hover:bg-stone-100 px-4 py-2 rounded-full text-sm transition" data-filter="Rooftops">Rooftops</button>
+                    <button class="filter-btn bg-white text-stone-600 border border-stone-300 hover:bg-stone-100 px-4 py-2 rounded-full text-sm transition" data-filter="Saved">Saved Only</button>
+                </div>
+            </div>
+
+            <!-- Grid -->
+            <div id="cards-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Cards will be injected here by JS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Section: The Vibe Check (Data Viz) -->
+    <section id="vibe-check" class="py-16 px-6 bg-white border-t border-stone-200">
+        <div class="max-w-7xl mx-auto">
+            <div class="mb-10 text-center max-w-2xl mx-auto">
+                <h2 class="text-3xl text-stone-800 mb-4">Vibe & Budget Matrix</h2>
+                <p class="text-stone-600">
+                    Where does each spot fit on the chaos vs. cost scale?
+                </p>
+            </div>
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
+                <div class="lg:col-span-2 bg-stone-50 p-6 rounded-xl border border-stone-200 shadow-sm">
+                    <div class="chart-container">
+                        <canvas id="vibeChart"></canvas>
+                    </div>
+                </div>
+                <div class="lg:col-span-1 space-y-6">
+                    <div class="bg-orange-50 p-6 rounded-xl border border-orange-100">
+                        <h3 class="text-xl text-orange-800 mb-2">My Top Picks</h3>
+                        <div class="chart-container" style="height: 200px; max-height: 200px;">
+                            <canvas id="categoryChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-stone-900 text-stone-400 py-12 px-6 text-center text-sm">
+        <p class="mb-2 serif text-lg text-stone-300">Pablo's Bangkok Guide</p>
+        <p>Curated with love. Safe travels!</p>
+    </footer>
+
+    <!-- Details Modal -->
+    <div id="modal-overlay" class="fixed inset-0 bg-stone-900 bg-opacity-75 z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-xl shadow-2xl w-full max-w-2xl max-h-[90vh] overflow-y-auto custom-scroll relative transform transition-all scale-95 opacity-0" id="modal-content">
+            <button onclick="closeModal()" class="absolute top-4 right-4 text-white drop-shadow-md hover:text-orange-200 text-3xl z-10">&times;</button>
+            <div id="modal-body">
+                <!-- Content injected via JS -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Data & Logic -->
+    <script>
+        // Images sourced from Unsplash source for "real photo" feel
+        const spots = [
+            // --- NIGHTLIFE ---
+            {
+                id: 1,
+                name: "The Friese-Greene Club",
+                category: "Nightlife",
+                tagline: "For film buffs and speakeasy lovers.",
+                description: "A tiny private member's club dedicated to cinema. Intimate 9-seat theater with a bar downstairs.",
+                insiderTip: "Check their Facebook Group for the nightly schedule. You can usually get a temporary membership at the door.",
+                location: "Sukhumvit Soi 22",
+                mapLink: "https://www.google.com/maps/search/?api=1&query=The+Friese-Greene+Club+Bangkok",
+                vibe: "Secret, Intimate",
+                chaosScore: 2, costScore: 5, mustDo: false,
+                lat: 13.7323, lng: 100.5644,
+                image: "https://images.unsplash.com/photo-1485846234645-a62644f84728?auto=format&fit=crop&w=600&q=80" // Cinema/Film vibe
+            },
+            {
+                id: 2,
+                name: "Studio Lam",
+                category: "Nightlife",
+                tagline: "Molam funk and herbal moonshine.",
+                description: "Dimly lit bar focusing on Thai country funk (Molam). Famous for house-infused Ya Dong.",
+                insiderTip: "Try a flight of Ya Dong. Entry fee applies on live band nights.",
+                location: "Sukhumvit Soi 51 (Thong Lo)",
+                mapLink: "https://www.google.com/maps/search/?api=1&query=Studio+Lam+Bangkok",
+                vibe: "Retro-cool, Audiophile",
+                chaosScore: 6, costScore: 6, mustDo: true,
+                lat: 13.7290, lng: 100.5780,
+                image: "https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?auto=format&fit=crop&w=600&q=80" // Cocktail/Bar vibe
+            },
+            {
+                id: 3,
+                name: "Tuba Design Furniture",
+                category: "Nightlife",
+                tagline: "The eclectic living room you wish you had.",
+                description: "Massive bar/restaurant doubling as an antique shop. 70s retro, mismatched chairs, and odd curiosities.",
+                insiderTip: "The Long Island is dangerous. Everything is for sale.",
+                location: "Ekkamai Soi 21",
+                mapLink: "https://www.google.com/maps/search/?api=1&query=Tuba+Design+Furniture+Restaurant",
+                vibe: "Bohemian, Quirky",
+                chaosScore: 4, costScore: 5, mustDo: false,
+                lat: 13.7380, lng: 100.5890,
+                image: "https://images.unsplash.com/photo-1550989460-0adf9ea622e2?auto=format&fit=crop&w=600&q=80" // Retro furniture vibe
+            },
+            {
+                id: 4,
+                name: "Wong’s Place",
+                category: "Nightlife",
+                tagline: "The legendary 'Last Stop'.",
+                description: "Red-lit dive bar institution. Famous for endless music videos and eccentric owner.",
+                insiderTip: "Only go late. It's an experience.",
+                location: "Soi Sribamphen (Sathorn)",
+                mapLink: "https://www.google.com/maps/search/?api=1&query=Wongs+Place+Bangkok",
+                vibe: "Divey, Loud",
+                chaosScore: 9, costScore: 2, mustDo: false,
+                lat: 13.7225, lng: 100.5460,
+                image: "https://images.unsplash.com/photo-1534234828569-98f3be3adeec?auto=format&fit=crop&w=600&q=80" // Red light/neon vibe
+            },
+            {
+                id: 5,
+                name: "JUSMAG Thai",
+                category: "Nightlife",
+                tagline: "A slice of America in Sathorn.",
+                description: "Bar/mess hall inside a compound near the German Embassy. Feels like a small American town hall.",
+                insiderTip: "Cheap beers and Taco nights.",
+                location: "Sathorn Tai Road",
+                mapLink: "https://www.google.com/maps/search/?api=1&query=JUSMAG+Thai",
+                vibe: "Unpretentious, Surreal",
+                chaosScore: 3, costScore: 2, mustDo: false,
+                lat: 13.7235, lng: 100.5405,
+                image: "https://images.unsplash.com/photo-1572116469696-31de0f17cc34?auto=format&fit=crop&w=600&q=80" // Beer/Bar vibe
+            },
+            {
+                id: 8,
+                name: "Soi Nana & El Chiringuito",
+                category: "Nightlife",
+                tagline: "The cool one in Chinatown.",
+                description: "Hip street lined with restored shophouses. El Chiringuito serves tapas and gin tonics.",
+                insiderTip: "Walk to Yaowarat Road afterwards for street food dinner.",
+                location: "Soi Nana, Chinatown",
+                mapLink: "https://www.google.com/maps/search/?api=1&query=El+Chiringuito+Bangkok",
+                vibe: "Vintage, Hip",
+                chaosScore: 5, costScore: 5, mustDo: true,
+                lat: 13.7395, lng: 100.5145,
+                image: "https://images.unsplash.com/photo-1565557623262-b51c2513a641?auto=format&fit=crop&w=600&q=80" // Chinatown/Bar vibe
+            },
+
+            // --- ROOFTOPS ---
+            {
+                id: 6,
+                name: "Cielo Sky Bar",
+                category: "Rooftops",
+                tagline: "The underrated rooftop view.",
+                description: "Stunning 360-degree view without the pretension or strict dress code of downtown hotels.",
+                insiderTip: "Drink at Cielo for sunset, then head downstairs to W District for street food.",
+                location: "Phra Khanong BTS",
+                mapLink: "https://www.google.com/maps/search/?api=1&query=Cielo+Sky+Bar+Bangkok",
+                vibe: "Chill, Scenic",
+                chaosScore: 2, costScore: 8, mustDo: true,
+                lat: 13.7135, lng: 100.5955,
+                image: "https://images.unsplash.com/photo-1505305976870-c0be1cdcfd94?auto=format&fit=crop&w=600&q=80" // City view
+            },
+            {
+                id: 7,
+                name: "River View Guest House",
+                category: "Rooftops",
+                tagline: "The best budget view in town.",
+                description: "Hidden in Talat Noi alleys. Old-school guest house with a panoramic river view restaurant.",
+                insiderTip: "Hard to find but worth it. Beer is cheap, sunset is world-class.",
+                location: "Talat Noi",
+                mapLink: "https://www.google.com/maps/search/?api=1&query=River+View+Guest+House+Bangkok",
+                vibe: "Hidden, Relaxed",
+                chaosScore: 1, costScore: 3, mustDo: false,
+                lat: 13.7345, lng: 100.5135,
+                image: "https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?auto=format&fit=crop&w=600&q=80" // River view
+            },
+
+            // --- RELAX & PARKS ---
+            {
+                id: 9,
+                name: "Yunomori Onsen",
+                category: "Relax",
+                tagline: "Japanese bathing culture meets Thai massage.",
+                description: "Authentic Onsen using Ranong hot spring water. Gender-separated nude baths.",
+                insiderTip: "Get the full package (bath + massage). Wear the provided Yukata in the common area.",
+                location: "Sukhumvit Soi 26",
+                mapLink: "https://www.google.com/maps/search/?api=1&query=Yunomori+Onsen+and+Spa+Sukhumvit+26",
+                vibe: "Zen, Recovery",
+                chaosScore: 0, costScore: 6, mustDo: true,
+                lat: 13.7205, lng: 100.5690,
+                image: "https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&w=600&q=80" // Spa vibe
+            },
+            {
+                id: 10,
+                name: "Bang Krachao",
+                category: "Parks",
+                tagline: "The Green Lung jungle.",
+                description: "Artificial island formed by the river bend. Lush, green, and quiet. Rent a bike.",
+                insiderTip: "Take boat from Wat Klong Toei Nok. Weekends: Visit Bang Nam Pheung Floating Market.",
+                location: "Phra Pradaeng",
+                mapLink: "https://www.google.com/maps/search/?api=1&query=Bang+Nam+Pheung+Floating+Market",
+                vibe: "Green, Active",
+                chaosScore: 2, costScore: 2, mustDo: true,
+                lat: 13.6900, lng: 100.5500,
+                image: "https://images.unsplash.com/photo-1596237617639-650570b69107?auto=format&fit=crop&w=600&q=80" // Jungle/Green vibe
+            },
+            {
+                id: 21,
+                name: "Benchakitti Forest Park",
+                category: "Parks",
+                tagline: "Bangkok's newest massive green space.",
+                description: "An incredible new forest park extension next to the Queen Sirikit Convention Center. Boardwalks over wetlands and huge amphitheaters.",
+                insiderTip: "Go in the late afternoon/sunset. It connects via a 'Green Mile' bridge all the way to Lumpini Park.",
+                location: "Asok / Khlong Toei",
+                mapLink: "https://www.google.com/maps/search/?api=1&query=Benchakitti+Forest+Park",
+                vibe: "Modern, Green",
+                chaosScore: 1, costScore: 0, mustDo: true,
+                lat: 13.7295, lng: 100.5560,
+                image: "https://images.unsplash.com/photo-1667634891823-74627d26422d?auto=format&fit=crop&w=600&q=80" // Park vibe
+            },
+            {
+                id: 22,
+                name: "Lumpini Park",
+                category: "Parks",
+                tagline: "The Central Park of Bangkok.",
+                description: "The classic city park. Monitor lizards roam free here. Great for running or swan boat riding.",
+                insiderTip: "Best time is 6 AM to see the Tai Chi groups or 5 PM for aerobics. Avoid midday heat.",
+                location: "Silom / Sathorn",
+                mapLink: "https://www.google.com/maps/search/?api=1&query=Lumpini+Park",
+                vibe: "Classic, Active",
+                chaosScore: 3, costScore: 0, mustDo: false,
+                lat: 13.7310, lng: 100.5415,
+                image: "https://images.unsplash.com/photo-1563294628-86d7c71cb322?auto=format&fit=crop&w=600&q=80" // Lumpini vibe
+            },
+            {
+                id: 23,
+                name: "Chatuchak Park Complex",
+                category: "Parks",
+                tagline: "The Biking Trio: Chatuchak, Queen Sirikit & Rot Fai.",
+                description: "Three parks connected together. Rot Fai (Railway Park) is the best for renting bikes and cycling long loops.",
+                insiderTip: "Rent a bike at Rot Fai Park. It's a great escape after hitting the weekend market.",
+                location: "Mo Chit / Chatuchak",
+                mapLink: "https://www.google.com/maps/search/?api=1&query=Wachirabenchathat+Park",
+                vibe: "Active, Family",
+                chaosScore: 3, costScore: 1, mustDo: false,
+                lat: 13.8115, lng: 100.5560,
+                image: "https://images.unsplash.com/photo-1585938389612-a552a28d6914?auto=format&fit=crop&w=600&q=80" // Bike/Park vibe
+            },
+
+            // --- CLASSICS ---
+            {
+                id: 11,
+                name: "Jim Thompson House",
+                category: "Classics",
+                tagline: "Silk history & traditional architecture.",
+                description: "Beautiful teak houses of the mysterious silk entrepreneur.",
+                insiderTip: "MUST-DO DETOUR: Walk across the canal to Ban Khrua Muslim community to see the real silk weavers.",
+                location: "National Stadium BTS",
+                mapLink: "https://www.google.com/maps/search/?api=1&query=Jim+Thompson+House+Museum",
+                vibe: "Historical, Aesthetic",
+                chaosScore: 4, costScore: 4, mustDo: true,
+                lat: 13.7495, lng: 100.5290,
+                image: "https://images.unsplash.com/photo-1599551323363-2782e5669b7a?auto=format&fit=crop&w=600&q=80" // Thai house
+            },
+            {
+                id: 12,
+                name: "Wat Arun via River",
+                category: "Classics",
+                tagline: "The scenic route to the Temple of Dawn.",
+                description: "Iconic riverside temple with stunning prang. Iconic sunset view.",
+                insiderTip: "Start at Flower Market, take cross-river ferry. Go at sunset. Strict dress code.",
+                location: "Thonburi Bank",
+                mapLink: "https://www.google.com/maps/search/?api=1&query=Wat+Arun",
+                vibe: "Spiritual, Majestic",
+                chaosScore: 7, costScore: 2, mustDo: true,
+                lat: 13.7440, lng: 100.4885,
+                image: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Wat_Arun_Rajwararam_Dhammaram_Ratchaworamahawihan_-_01.jpg/640px-Wat_Arun_Rajwararam_Dhammaram_Ratchaworamahawihan_-_01.jpg" // Wat Arun Real
+            },
+            {
+                id: 13,
+                name: "Wat Paknam",
+                category: "Classics",
+                tagline: "The Giant Golden Buddha.",
+                description: "Massive 69m golden Buddha dominating the skyline of Thonburi.",
+                insiderTip: "Start at Talat Phlu market for food, then walk/songthaew to the temple.",
+                location: "Thonburi",
+                mapLink: "https://www.google.com/maps/search/?api=1&query=Wat+Paknam+Phasi+Charoen",
+                vibe: "Awe-inspiring, Local",
+                chaosScore: 6, costScore: 1, mustDo: false,
+                lat: 13.7215, lng: 100.4705,
+                image: "https://images.unsplash.com/photo-1563721346747-d5d852028659?auto=format&fit=crop&w=600&q=80" // Big Buddha
+            },
+            {
+                id: 14,
+                name: "Wat Suthat",
+                category: "Classics",
+                tagline: "The Giant Swing.",
+                description: "One of the oldest temples, famous for the red teak swing. Very peaceful.",
+                insiderTip: "Walk BEHIND the temple to the monks' quarters. It's incredibly peaceful.",
+                location: "Old City",
+                mapLink: "https://www.google.com/maps/search/?api=1&query=Wat+Suthat+Thepwararam",
+                vibe: "Peaceful, Traditional",
+                chaosScore: 1, costScore: 2, mustDo: false,
+                lat: 13.7510, lng: 100.5010,
+                image: "https://images.unsplash.com/photo-1590417975271-460d3fc3889c?auto=format&fit=crop&w=600&q=80" // Temple
+            },
+            {
+                id: 18,
+                name: "Amulet Market (Tha Phra Chan)",
+                category: "Classics",
+                tagline: "Mystic charms & student-price massages.",
+                description: "Near Thammasat University. Filled with sacred talismans and authentic, affordable massage shops used by locals.",
+                insiderTip: "Walk down the alleys near the pier for the massage spots. Prices here are significantly lower than tourist areas.",
+                location: "Tha Phra Chan",
+                mapLink: "https://www.google.com/maps/search/?api=1&query=Tha+Phra+Chan+Amulet+Market",
+                vibe: "Mystical, Local",
+                chaosScore: 6, costScore: 1, mustDo: false,
+                lat: 13.7555, lng: 100.4895,
+                image: "https://images.unsplash.com/photo-1580892228308-360341763784?auto=format&fit=crop&w=600&q=80" // Amulets/Market
+            },
+            {
+                id: 19,
+                name: "Kudichin Community",
+                category: "Classics",
+                tagline: "Portuguese heritage on the riverbank.",
+                description: "A peaceful historic neighborhood settled by Portuguese Catholics. Narrow alleys, Santa Cruz Church, and a museum.",
+                insiderTip: "You MUST try 'Khanom Farang Kudichin', a sponge cake made from a 500-year-old recipe.",
+                location: "Thonburi (West Bank)",
+                mapLink: "https://www.google.com/maps/search/?api=1&query=Kudichin+Community",
+                vibe: "Quiet, Historic",
+                chaosScore: 2, costScore: 2, mustDo: true,
+                lat: 13.7375, lng: 100.4930,
+                image: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dc/Kudichin_01.jpg/640px-Kudichin_01.jpg" // Kudichin
+            },
+            {
+                id: 20,
+                name: "Kuan An Keng Shrine",
+                category: "Classics",
+                tagline: "Exquisite wood carvings & Kuan Yin.",
+                description: "Often overlooked, this Chinese shrine next to Wat Kalayanamit features incredible wood carvings.",
+                insiderTip: "It's right next to the Kudichin community. The contrast represents Bangkok's diversity perfectly.",
+                location: "Thonburi (River)",
+                mapLink: "https://www.google.com/maps/search/?api=1&query=Kuan+An+Keng+Shrine",
+                vibe: "Peaceful, Intricate",
+                chaosScore: 1, costScore: 1, mustDo: false,
+                lat: 13.7400, lng: 100.4910,
+                image: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Kuan_An_Keng_Shrine_02.jpg/640px-Kuan_An_Keng_Shrine_02.jpg" // Shrine
+            },
+
+            // --- FOOD ---
+            {
+                id: 15,
+                name: "Steve Café & Cuisine",
+                category: "Food",
+                tagline: "Riverside dining, no tourist traps.",
+                description: "Home-style Thai food hidden behind a temple. Great bridge view.",
+                insiderTip: "Booking essential for riverside tables. Enter through Wat Thevarat Kunchorn.",
+                location: "Dhevet Pier",
+                mapLink: "https://www.google.com/maps/search/?api=1&query=Steve+Cafe+and+Cuisine+Dhevet",
+                vibe: "Breezy, Authentic",
+                chaosScore: 3, costScore: 6, mustDo: true,
+                lat: 13.7705, lng: 100.5030,
+                image: "https://images.unsplash.com/photo-1560159752-d6d37014603c?auto=format&fit=crop&w=600&q=80" // Thai food
+            },
+            {
+                id: 16,
+                name: "Or Tor Kor Market",
+                category: "Food",
+                tagline: "High-end farmer's market.",
+                description: "Cleanest market with highest quality produce. Next to Chatuchak.",
+                insiderTip: "Get giant river prawns and mango sticky rice. Much more relaxed than Chatuchak.",
+                location: "Kamphaeng Phet MRT",
+                mapLink: "https://www.google.com/maps/search/?api=1&query=Or+Tor+Kor+Market",
+                vibe: "Delicious, Clean",
+                chaosScore: 5, costScore: 5, mustDo: true,
+                lat: 13.7975, lng: 100.5470,
+                image: "https://images.unsplash.com/photo-1510223758362-ec70438a924b?auto=format&fit=crop&w=600&q=80" // Fruit market
+            },
+            {
+                id: 17,
+                name: "Pak Khlong Talat",
+                category: "Food",
+                tagline: "A sensory explosion of jasmine and orchids.",
+                description: "Bangkok’s biggest wholesale flower market. Open 24 hours, but the real action happens late at night.",
+                insiderTip: "Go at 2-3 AM to see trucks unloading mountains of flowers, or just before dawn for sunrise over the river.",
+                location: "Chakphet Road",
+                mapLink: "https://www.google.com/maps/search/?api=1&query=Pak+Khlong+Talat",
+                vibe: "Chaotic, Fragrant, Local",
+                chaosScore: 8, costScore: 2, mustDo: true,
+                lat: 13.7415, lng: 100.4960,
+                image: "https://images.unsplash.com/photo-1590059530462-8e1044ba904f?auto=format&fit=crop&w=600&q=80" // Flower market
+            }
+        ];
+
+        let savedSpots = new Set();
+        let currentFilter = 'all';
+
+        // --- MAP INITIALIZATION ---
+        let map;
+
+        document.addEventListener('DOMContentLoaded', () => {
+            initMap();
+            renderCharts();
+            renderCards();
+            updateSavedCount();
+        });
+
+        function initMap() {
+            map = L.map('map').setView([13.74, 100.53], 12);
+
+            L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/attributions">CARTO</a>',
+                subdomains: 'abcd',
+                maxZoom: 19
+            }).addTo(map);
+
+            const categoryColors = {
+                'Nightlife': '#ea580c',
+                'Relax': '#10b981',
+                'Parks': '#059669', // Emerald-600
+                'Classics': '#f59e0b',
+                'Food': '#ef4444',
+                'Rooftops': '#6366f1'
+            };
+
+            spots.forEach(spot => {
+                const marker = L.marker([spot.lat, spot.lng]).addTo(map);
+                
+                const popupContent = `
+                    <div class="cursor-pointer" onclick="openModal(${spot.id})">
+                        <img src="${spot.image}" class="w-full h-24 object-cover rounded-t" alt="${spot.name}">
+                        <div class="p-2">
+                            <h3 class="font-bold text-stone-800 text-sm">${spot.name}</h3>
+                            <span class="text-xs font-semibold" style="color:${categoryColors[spot.category]}">${spot.category}</span>
+                            <p class="text-xs text-stone-500 line-clamp-2 mt-1">${spot.tagline}</p>
+                            <button class="mt-2 text-xs bg-stone-800 text-white px-2 py-1 rounded w-full">See Details</button>
+                        </div>
+                    </div>
+                `;
+                
+                marker.bindPopup(popupContent);
+            });
+        }
+
+        function renderCharts() {
+            // 1. Scatter Plot
+            const ctxVibe = document.getElementById('vibeChart').getContext('2d');
+            const scatterData = spots.map(spot => ({
+                x: spot.chaosScore,
+                y: spot.costScore,
+                r: 8,
+                spotId: spot.id,
+                name: spot.name,
+                category: spot.category
+            }));
+
+            const categoryColors = {
+                'Nightlife': 'rgba(234, 88, 12, 0.7)',
+                'Relax': 'rgba(16, 185, 129, 0.7)',
+                'Parks': 'rgba(5, 150, 105, 0.7)',
+                'Classics': 'rgba(245, 158, 11, 0.7)',
+                'Food': 'rgba(239, 68, 68, 0.7)',
+                'Rooftops': 'rgba(99, 102, 241, 0.7)'
+            };
+
+            new Chart(ctxVibe, {
+                type: 'bubble',
+                data: {
+                    datasets: [{
+                        label: 'Spots',
+                        data: scatterData,
+                        backgroundColor: (c) => categoryColors[c.raw?.category] || 'gray',
+                        borderColor: 'white',
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        x: { min: -1, max: 11, title: { display: true, text: 'Energy (Chill → Chaotic)' }, grid: { color: '#e7e5e4' } },
+                        y: { min: 0, max: 10, title: { display: true, text: 'Price (Cheap → High End)' }, grid: { color: '#e7e5e4' } }
+                    },
+                    plugins: {
+                        legend: { display: false },
+                        tooltip: { callbacks: { label: (c) => `${c.raw.name} (${c.raw.category})` } }
+                    },
+                    onClick: (e, elements) => {
+                        if (elements.length > 0) {
+                            openModal(scatterData[elements[0].index].spotId);
+                        }
+                    }
+                }
+            });
+
+            // 2. Donut Chart
+            const ctxCat = document.getElementById('categoryChart').getContext('2d');
+            const catCounts = {};
+            spots.forEach(s => catCounts[s.category] = (catCounts[s.category] || 0) + 1);
+            new Chart(ctxCat, {
+                type: 'doughnut',
+                data: {
+                    labels: Object.keys(catCounts),
+                    datasets: [{
+                        data: Object.values(catCounts),
+                        backgroundColor: Object.keys(catCounts).map(k => categoryColors[k]),
+                        borderWidth: 0
+                    }]
+                },
+                options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { position: 'right' } } }
+            });
+        }
+
+        function renderCards() {
+            const grid = document.getElementById('cards-grid');
+            grid.innerHTML = '';
+            spots.forEach(spot => {
+                if (currentFilter !== 'all' && currentFilter !== 'Saved' && spot.category !== currentFilter) return;
+                if (currentFilter === 'Saved' && !savedSpots.has(spot.id)) return;
+
+                const isSaved = savedSpots.has(spot.id);
+                const card = document.createElement('div');
+                card.className = `bg-white rounded-xl shadow-sm border border-stone-200 overflow-hidden card-hover transition cursor-pointer flex flex-col h-full`;
+                card.onclick = (e) => { if (!e.target.closest('button')) openModal(spot.id); };
+                
+                card.innerHTML = `
+                    <div class="h-40 bg-stone-200 relative group">
+                        <img src="${spot.image}" class="w-full h-full object-cover transition duration-500 group-hover:scale-110" alt="${spot.name}">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition"></div>
+                        <div class="absolute top-2 right-2">
+                             ${spot.mustDo ? '<span class="text-xs font-bold text-white bg-orange-600 px-2 py-1 rounded shadow">MUST DO</span>' : ''}
+                        </div>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between">
+                        <div>
+                            <span class="text-xs font-bold uppercase tracking-wider text-stone-500 mb-2 block">${spot.category}</span>
+                            <h3 class="text-xl serif text-stone-900 mb-2 leading-tight">${spot.name}</h3>
+                            <p class="text-sm text-stone-600 line-clamp-2">${spot.description}</p>
+                        </div>
+                        <div class="flex justify-between items-center mt-4 pt-4 border-t border-stone-100">
+                            <span class="text-xs text-stone-500 font-medium">📍 ${spot.location}</span>
+                            <button onclick="toggleSave(event, ${spot.id})" class="text-stone-400 hover:text-orange-500 transition ${isSaved ? 'text-orange-600 font-bold' : ''}">
+                                ${isSaved ? '♥ Saved' : '♡ Save'}
+                            </button>
+                        </div>
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterBtns.forEach(b => b.classList.replace('bg-stone-800', 'bg-white'));
+                filterBtns.forEach(b => b.classList.replace('text-white', 'text-stone-600'));
+                btn.classList.replace('bg-white', 'bg-stone-800');
+                btn.classList.replace('text-stone-600', 'text-white');
+                currentFilter = btn.dataset.filter;
+                renderCards();
+            });
+        });
+
+        function toggleSave(e, id) {
+            e.stopPropagation();
+            if (savedSpots.has(id)) savedSpots.delete(id);
+            else savedSpots.add(id);
+            updateSavedCount();
+            renderCards();
+        }
+
+        function updateSavedCount() {
+            document.getElementById('saved-count').textContent = savedSpots.size;
+        }
+
+        function openModal(id) {
+            const spot = spots.find(s => s.id === id);
+            if (!spot) return;
+            const modalContent = document.getElementById('modal-content');
+            const modalBody = document.getElementById('modal-body');
+            const overlay = document.getElementById('modal-overlay');
+
+            modalBody.innerHTML = `
+                <div class="relative">
+                    <div class="h-64 md:h-80 w-full relative">
+                        <img src="${spot.image}" class="w-full h-full object-cover rounded-t-xl" alt="${spot.name}">
+                        <div class="absolute inset-0 bg-gradient-to-t from-stone-900/90 via-stone-900/40 to-transparent flex items-end p-8">
+                             <div>
+                                <span class="text-orange-400 font-bold tracking-widest text-xs uppercase mb-1 block">${spot.category}</span>
+                                <h2 class="text-3xl md:text-5xl serif text-white mb-2 leading-none">${spot.name}</h2>
+                             </div>
+                        </div>
+                    </div>
+                    <div class="p-8">
+                        <p class="text-lg text-stone-500 italic mb-6 border-l-4 border-orange-200 pl-4">"${spot.tagline}"</p>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+                            <div>
+                                <h4 class="font-bold text-stone-800 mb-2">The Experience</h4>
+                                <p class="text-stone-600 text-sm leading-relaxed">${spot.description}</p>
+                                <div class="mt-4 flex gap-2">
+                                    <span class="text-xs bg-stone-100 text-stone-600 px-3 py-1 rounded-full">Vibe: ${spot.vibe}</span>
+                                </div>
+                            </div>
+                            <div class="bg-orange-50 p-5 rounded-lg border border-orange-100">
+                                <h4 class="font-bold text-orange-800 mb-2">⚡ Insider Tip</h4>
+                                <p class="text-stone-700 text-sm">${spot.insiderTip}</p>
+                            </div>
+                        </div>
+                        <div class="bg-stone-50 p-6 rounded-xl border border-stone-200 flex flex-col md:flex-row justify-between items-center gap-4">
+                            <div class="text-center md:text-left">
+                                <h4 class="font-bold text-stone-800">Location</h4>
+                                <p class="text-stone-600 text-sm">${spot.location}</p>
+                            </div>
+                            <a href="${spot.mapLink}" target="_blank" class="bg-stone-800 hover:bg-stone-700 text-white px-6 py-2 rounded shadow transition flex items-center gap-2 text-sm font-medium">
+                                Open in Google Maps ↗
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            `;
+            overlay.classList.remove('hidden');
+            setTimeout(() => {
+                modalContent.classList.remove('opacity-0', 'scale-95');
+                modalContent.classList.add('opacity-100', 'scale-100');
+            }, 10);
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            const modalContent = document.getElementById('modal-content');
+            const overlay = document.getElementById('modal-overlay');
+            modalContent.classList.remove('opacity-100', 'scale-100');
+            modalContent.classList.add('opacity-0', 'scale-95');
+            setTimeout(() => {
+                overlay.classList.add('hidden');
+                document.body.style.overflow = '';
+            }, 200);
+        }
+
+        document.getElementById('modal-overlay').addEventListener('click', (e) => {
+            if (e.target.id === 'modal-overlay') closeModal();
+        });
+
+        function scrollToSection(id) {
+            document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+        }
+        document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeModal(); });
+    </script>
+</body>
+</html>

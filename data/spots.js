@@ -1,5 +1,4 @@
-﻿// Bangkok spots data
-const SPOTS_DATA = [
+﻿const SPOTS_DATA = [
     {
         "id": 1,
         "name": "The Friese-Greene Club",
@@ -10,12 +9,10 @@ const SPOTS_DATA = [
         "location": "Sukhumvit Soi 22",
         "mapLink": "https://www.google.com/maps/search/?api=1&query=The+Friese-Greene+Club+Bangkok",
         "vibe": "Secret, Intimate",
-        "chaosScore": 2,
-        "costScore": 5,
-        "mustDo": false,
-        "lat": 13.7323,
-        "lng": 100.5644,
-        "image": "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&w=800&q=80"
+        "chaosScore": 2, "costScore": 5, "mustDo": false,
+        "lat": 13.7323, "lng": 100.5644,
+        "image": "https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c?auto=format&fit=crop&w=800&q=80",
+        "images": ["https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c?auto=format&fit=crop&w=800&q=80","https://images.unsplash.com/photo-1478720568477-152d9b164e26?auto=format&fit=crop&w=800&q=80","https://images.unsplash.com/photo-1440404653325-ab127d49abc1?auto=format&fit=crop&w=800&q=80"]
     },
     {
         "id": 2,
@@ -27,12 +24,10 @@ const SPOTS_DATA = [
         "location": "Sukhumvit Soi 51 (Thong Lo)",
         "mapLink": "https://www.google.com/maps/search/?api=1&query=Studio+Lam+Bangkok",
         "vibe": "Retro-cool, Audiophile",
-        "chaosScore": 6,
-        "costScore": 6,
-        "mustDo": true,
-        "lat": 13.7290,
-        "lng": 100.5780,
-        "image": "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?auto=format&fit=crop&w=800&q=80"
+        "chaosScore": 6, "costScore": 6, "mustDo": true,
+        "lat": 13.7290, "lng": 100.5780,
+        "image": "https://images.unsplash.com/photo-1566737236500-c8ac43014a67?auto=format&fit=crop&w=800&q=80",
+        "images": ["https://images.unsplash.com/photo-1566737236500-c8ac43014a67?auto=format&fit=crop&w=800&q=80","https://images.unsplash.com/photo-1571266028243-d220c6a8518e?auto=format&fit=crop&w=800&q=80","https://images.unsplash.com/photo-1415201364774-f6f0bb35f28f?auto=format&fit=crop&w=800&q=80"]
     },
     {
         "id": 3,
@@ -44,12 +39,10 @@ const SPOTS_DATA = [
         "location": "Ekkamai Soi 21",
         "mapLink": "https://www.google.com/maps/search/?api=1&query=Tuba+Design+Furniture+Restaurant",
         "vibe": "Bohemian, Quirky",
-        "chaosScore": 4,
-        "costScore": 5,
-        "mustDo": false,
-        "lat": 13.7380,
-        "lng": 100.5890,
-        "image": "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=800&q=80"
+        "chaosScore": 4, "costScore": 5, "mustDo": false,
+        "lat": 13.7380, "lng": 100.5890,
+        "image": "https://images.unsplash.com/photo-1462826303086-329426d1aef5?auto=format&fit=crop&w=800&q=80",
+        "images": ["https://images.unsplash.com/photo-1462826303086-329426d1aef5?auto=format&fit=crop&w=800&q=80","https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&w=800&q=80"]
     },
     {
         "id": 4,
@@ -61,12 +54,10 @@ const SPOTS_DATA = [
         "location": "Soi Sribamphen (Sathorn)",
         "mapLink": "https://www.google.com/maps/search/?api=1&query=Wongs+Place+Bangkok",
         "vibe": "Divey, Loud",
-        "chaosScore": 9,
-        "costScore": 2,
-        "mustDo": false,
-        "lat": 13.7225,
-        "lng": 100.5460,
-        "image": "https://images.unsplash.com/photo-1566417713940-fe7c737a9ef2?auto=format&fit=crop&w=800&q=80"
+        "chaosScore": 9, "costScore": 2, "mustDo": false,
+        "lat": 13.7225, "lng": 100.5460,
+        "image": "https://images.unsplash.com/photo-1572116469696-31de0f17cc34?auto=format&fit=crop&w=800&q=80",
+        "images": ["https://images.unsplash.com/photo-1572116469696-31de0f17cc34?auto=format&fit=crop&w=800&q=80","https://images.unsplash.com/photo-1514933651103-005eec06c04b?auto=format&fit=crop&w=800&q=80"]
     },
     {
         "id": 5,
@@ -78,12 +69,10 @@ const SPOTS_DATA = [
         "location": "Sathorn Tai Road",
         "mapLink": "https://www.google.com/maps/search/?api=1&query=JUSMAG+Thai",
         "vibe": "Unpretentious, Surreal",
-        "chaosScore": 3,
-        "costScore": 2,
-        "mustDo": false,
-        "lat": 13.7235,
-        "lng": 100.5405,
-        "image": "https://images.unsplash.com/photo-1514933651103-005eec06c04b?auto=format&fit=crop&w=800&q=80"
+        "chaosScore": 3, "costScore": 2, "mustDo": false,
+        "lat": 13.7235, "lng": 100.5405,
+        "image": "https://images.unsplash.com/photo-1575444758702-4a6b9222c016?auto=format&fit=crop&w=800&q=80",
+        "images": ["https://images.unsplash.com/photo-1575444758702-4a6b9222c016?auto=format&fit=crop&w=800&q=80","https://images.unsplash.com/photo-1543007630-9710e4a00a20?auto=format&fit=crop&w=800&q=80"]
     },
     {
         "id": 8,
@@ -95,12 +84,10 @@ const SPOTS_DATA = [
         "location": "Soi Nana, Chinatown",
         "mapLink": "https://www.google.com/maps/search/?api=1&query=El+Chiringuito+Bangkok",
         "vibe": "Vintage, Hip",
-        "chaosScore": 5,
-        "costScore": 5,
-        "mustDo": true,
-        "lat": 13.7395,
-        "lng": 100.5145,
-        "image": "https://images.unsplash.com/photo-1559592413-7cec4d0cae2b?auto=format&fit=crop&w=800&q=80"
+        "chaosScore": 5, "costScore": 5, "mustDo": true,
+        "lat": 13.7395, "lng": 100.5145,
+        "image": "https://images.unsplash.com/photo-1559592413-7cec4d0cae2b?auto=format&fit=crop&w=800&q=80",
+        "images": ["https://images.unsplash.com/photo-1559592413-7cec4d0cae2b?auto=format&fit=crop&w=800&q=80","https://images.unsplash.com/photo-1567521464027-f127ff144326?auto=format&fit=crop&w=800&q=80"]
     },
     {
         "id": 6,
@@ -112,12 +99,10 @@ const SPOTS_DATA = [
         "location": "Phra Khanong BTS",
         "mapLink": "https://www.google.com/maps/search/?api=1&query=Cielo+Sky+Bar+Bangkok",
         "vibe": "Chill, Scenic",
-        "chaosScore": 2,
-        "costScore": 8,
-        "mustDo": true,
-        "lat": 13.7135,
-        "lng": 100.5955,
-        "image": "https://images.unsplash.com/photo-1519167758481-83f550bb49b3?auto=format&fit=crop&w=800&q=80"
+        "chaosScore": 2, "costScore": 8, "mustDo": true,
+        "lat": 13.7135, "lng": 100.5955,
+        "image": "https://images.unsplash.com/photo-1508009603885-50cf7c579365?auto=format&fit=crop&w=800&q=80",
+        "images": ["https://images.unsplash.com/photo-1508009603885-50cf7c579365?auto=format&fit=crop&w=800&q=80","https://images.unsplash.com/photo-1519046904884-53103b34b206?auto=format&fit=crop&w=800&q=80"]
     },
     {
         "id": 7,
@@ -129,12 +114,25 @@ const SPOTS_DATA = [
         "location": "Talat Noi",
         "mapLink": "https://www.google.com/maps/search/?api=1&query=River+View+Guest+House+Bangkok",
         "vibe": "Hidden, Relaxed",
-        "chaosScore": 1,
-        "costScore": 3,
-        "mustDo": false,
-        "lat": 13.7345,
-        "lng": 100.5135,
-        "image": "https://images.unsplash.com/photo-1598970605070-a38a6ccd120b?auto=format&fit=crop&w=800&q=80"
+        "chaosScore": 1, "costScore": 3, "mustDo": false,
+        "lat": 13.7345, "lng": 100.5135,
+        "image": "https://images.unsplash.com/photo-1506665531195-3566af2b4dfa?auto=format&fit=crop&w=800&q=80",
+        "images": ["https://images.unsplash.com/photo-1506665531195-3566af2b4dfa?auto=format&fit=crop&w=800&q=80","https://images.unsplash.com/photo-1559592413-7cec4d0cae2b?auto=format&fit=crop&w=800&q=80"]
+    },
+    {
+        "id": 28,
+        "name": "Asiatique The Riverfront",
+        "category": "Rooftops",
+        "tagline": "Night bazaar meets Ferris wheel by the river.",
+        "description": "Massive riverside entertainment complex built on old docks. Features a giant Ferris wheel, hundreds of shops, restaurants, and a Muay Thai theater. Best visited at sunset for stunning river views.",
+        "insiderTip": "Take the free shuttle boat from Saphan Taksin BTS. Ride the Ferris wheel at sunset for the best photo op.",
+        "location": "Charoen Krung Road",
+        "mapLink": "https://www.google.com/maps/search/?api=1&query=Asiatique+The+Riverfront",
+        "vibe": "Festive, Scenic",
+        "chaosScore": 6, "costScore": 4, "mustDo": false,
+        "lat": 13.7072, "lng": 100.5013,
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Asiatique_The_Riverfront_01.jpg/960px-Asiatique_The_Riverfront_01.jpg",
+        "images": ["https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Asiatique_The_Riverfront_01.jpg/960px-Asiatique_The_Riverfront_01.jpg","https://images.unsplash.com/photo-1508009603885-50cf7c579365?auto=format&fit=crop&w=800&q=80"]
     },
     {
         "id": 9,
@@ -146,12 +144,10 @@ const SPOTS_DATA = [
         "location": "Sukhumvit Soi 26",
         "mapLink": "https://www.google.com/maps/search/?api=1&query=Yunomori+Onsen+and+Spa+Sukhumvit+26",
         "vibe": "Zen, Recovery",
-        "chaosScore": 0,
-        "costScore": 6,
-        "mustDo": true,
-        "lat": 13.7205,
-        "lng": 100.5690,
-        "image": "https://images.unsplash.com/photo-1540555700478-4be289fbec6a?auto=format&fit=crop&w=800&q=80"
+        "chaosScore": 0, "costScore": 6, "mustDo": true,
+        "lat": 13.7205, "lng": 100.5690,
+        "image": "https://images.unsplash.com/photo-1540555700478-4be289fbec6a?auto=format&fit=crop&w=800&q=80",
+        "images": ["https://images.unsplash.com/photo-1540555700478-4be289fbec6a?auto=format&fit=crop&w=800&q=80","https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&w=800&q=80"]
     },
     {
         "id": 10,
@@ -163,12 +159,10 @@ const SPOTS_DATA = [
         "location": "Phra Pradaeng",
         "mapLink": "https://www.google.com/maps/search/?api=1&query=Bang+Nam+Pheung+Floating+Market",
         "vibe": "Green, Active",
-        "chaosScore": 2,
-        "costScore": 2,
-        "mustDo": true,
-        "lat": 13.6580,
-        "lng": 100.5750,
-        "image": "https://images.unsplash.com/photo-1517649763962-0c623066013b?auto=format&fit=crop&w=800&q=80"
+        "chaosScore": 2, "costScore": 2, "mustDo": true,
+        "lat": 13.6580, "lng": 100.5750,
+        "image": "https://images.unsplash.com/photo-1548247661-3d7905940716?auto=format&fit=crop&w=800&q=80",
+        "images": ["https://images.unsplash.com/photo-1548247661-3d7905940716?auto=format&fit=crop&w=800&q=80","https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80"]
     },
     {
         "id": 21,
@@ -180,12 +174,10 @@ const SPOTS_DATA = [
         "location": "Asok / Khlong Toei",
         "mapLink": "https://www.google.com/maps/search/?api=1&query=Benchakitti+Forest+Park",
         "vibe": "Modern, Green",
-        "chaosScore": 1,
-        "costScore": 0,
-        "mustDo": true,
-        "lat": 13.7295,
-        "lng": 100.5560,
-        "image": "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=800&q=80"
+        "chaosScore": 1, "costScore": 0, "mustDo": true,
+        "lat": 13.7295, "lng": 100.5560,
+        "image": "https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Benchakitti_Forest_Park.jpg&width=800",
+        "images": ["https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Benchakitti_Forest_Park.jpg&width=800","https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=800&q=80"]
     },
     {
         "id": 22,
@@ -197,12 +189,10 @@ const SPOTS_DATA = [
         "location": "Silom / Sathorn",
         "mapLink": "https://www.google.com/maps/search/?api=1&query=Lumpini+Park",
         "vibe": "Classic, Active",
-        "chaosScore": 3,
-        "costScore": 0,
-        "mustDo": false,
-        "lat": 13.7310,
-        "lng": 100.5415,
-        "image": "https://images.unsplash.com/photo-1506665531195-3566af2b4dfa?auto=format&fit=crop&w=800&q=80"
+        "chaosScore": 3, "costScore": 0, "mustDo": false,
+        "lat": 13.7310, "lng": 100.5415,
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/Lumphini_Park%2C_Bangkok.jpg/960px-Lumphini_Park%2C_Bangkok.jpg",
+        "images": ["https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/Lumphini_Park%2C_Bangkok.jpg/960px-Lumphini_Park%2C_Bangkok.jpg"]
     },
     {
         "id": 23,
@@ -214,12 +204,10 @@ const SPOTS_DATA = [
         "location": "Mo Chit / Chatuchak",
         "mapLink": "https://www.google.com/maps/search/?api=1&query=Wachirabenchathat+Park",
         "vibe": "Active, Family",
-        "chaosScore": 3,
-        "costScore": 1,
-        "mustDo": false,
-        "lat": 13.8115,
-        "lng": 100.5560,
-        "image": "https://images.unsplash.com/photo-1558618666-fcd25c85f82e?auto=format&fit=crop&w=800&q=80"
+        "chaosScore": 3, "costScore": 1, "mustDo": false,
+        "lat": 13.8115, "lng": 100.5560,
+        "image": "https://images.unsplash.com/photo-1558618666-fcd25c85f82e?auto=format&fit=crop&w=800&q=80",
+        "images": ["https://images.unsplash.com/photo-1558618666-fcd25c85f82e?auto=format&fit=crop&w=800&q=80","https://images.unsplash.com/photo-1513364776144-60967b0f800f?auto=format&fit=crop&w=800&q=80"]
     },
     {
         "id": 11,
@@ -231,12 +219,10 @@ const SPOTS_DATA = [
         "location": "National Stadium BTS",
         "mapLink": "https://www.google.com/maps/search/?api=1&query=Jim+Thompson+House+Museum",
         "vibe": "Historical, Aesthetic",
-        "chaosScore": 4,
-        "costScore": 4,
-        "mustDo": true,
-        "lat": 13.7495,
-        "lng": 100.5290,
-        "image": "https://images.unsplash.com/photo-1528181304800-259b08848526?auto=format&fit=crop&w=800&q=80"
+        "chaosScore": 4, "costScore": 4, "mustDo": true,
+        "lat": 13.7495, "lng": 100.5290,
+        "image": "https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Jim_Thompson_House_from_the_garden.jpg&width=800",
+        "images": ["https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Jim_Thompson_House_from_the_garden.jpg&width=800","https://images.unsplash.com/photo-1528181304800-259b08848526?auto=format&fit=crop&w=800&q=80"]
     },
     {
         "id": 12,
@@ -248,12 +234,10 @@ const SPOTS_DATA = [
         "location": "Thonburi Bank",
         "mapLink": "https://www.google.com/maps/search/?api=1&query=Wat+Arun",
         "vibe": "Spiritual, Majestic",
-        "chaosScore": 7,
-        "costScore": 2,
-        "mustDo": true,
-        "lat": 13.7440,
-        "lng": 100.4885,
-        "image": "https://images.unsplash.com/photo-1563492065599-3520f775eeed?auto=format&fit=crop&w=800&q=80"
+        "chaosScore": 7, "costScore": 2, "mustDo": true,
+        "lat": 13.7440, "lng": 100.4885,
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Wat_Arun_Bangkok.jpg/960px-Wat_Arun_Bangkok.jpg",
+        "images": ["https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Wat_Arun_Bangkok.jpg/960px-Wat_Arun_Bangkok.jpg","https://images.unsplash.com/photo-1563492065599-3520f775eeed?auto=format&fit=crop&w=800&q=80"]
     },
     {
         "id": 13,
@@ -265,16 +249,14 @@ const SPOTS_DATA = [
         "location": "Thonburi",
         "mapLink": "https://www.google.com/maps/search/?api=1&query=Wat+Paknam+Phasi+Charoen",
         "vibe": "Awe-inspiring, Local",
-        "chaosScore": 6,
-        "costScore": 1,
-        "mustDo": false,
-        "lat": 13.7215,
-        "lng": 100.4705,
-        "image": "https://images.unsplash.com/photo-1600005082646-10fe2abb4b08?auto=format&fit=crop&w=800&q=80"
+        "chaosScore": 6, "costScore": 1, "mustDo": false,
+        "lat": 13.7215, "lng": 100.4705,
+        "image": "https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Wat_Paknam_Phasicharoen_from_across_the_moat.jpg&width=800",
+        "images": ["https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Wat_Paknam_Phasicharoen_from_across_the_moat.jpg&width=800"]
     },
     {
         "id": 14,
-        "name": "Wat Suthat",
+        "name": "Wat Suthat & Giant Swing",
         "category": "Classics",
         "tagline": "The Giant Swing.",
         "description": "One of the oldest temples, famous for the red teak swing. Very peaceful.",
@@ -282,12 +264,55 @@ const SPOTS_DATA = [
         "location": "Old City",
         "mapLink": "https://www.google.com/maps/search/?api=1&query=Wat+Suthat+Thepwararam",
         "vibe": "Peaceful, Traditional",
-        "chaosScore": 1,
-        "costScore": 2,
-        "mustDo": false,
-        "lat": 13.7510,
-        "lng": 100.5010,
-        "image": "https://images.unsplash.com/photo-1569154941061-e231b4725ef1?auto=format&fit=crop&w=800&q=80"
+        "chaosScore": 1, "costScore": 2, "mustDo": false,
+        "lat": 13.7510, "lng": 100.5010,
+        "image": "https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Giant_Swing_Bangkok.jpg&width=800",
+        "images": ["https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Giant_Swing_Bangkok.jpg&width=800"]
+    },
+    {
+        "id": 25,
+        "name": "Wat Pho",
+        "category": "Classics",
+        "tagline": "The Reclining Buddha & birthplace of Thai massage.",
+        "description": "One of Bangkok's oldest and largest temple complexes, home to the 46m reclining Buddha covered in gold leaf. Also the first center for public education in Thailand. Houses over 1,000 Buddha images and is the national headquarters for traditional Thai massage.",
+        "insiderTip": "Get a Thai massage inside the temple grounds â€” it's affordable and a unique experience. Go early morning to avoid crowds.",
+        "location": "Phra Nakhon (next to Grand Palace)",
+        "mapLink": "https://www.google.com/maps/search/?api=1&query=Wat+Pho+Bangkok",
+        "vibe": "Spiritual, Grand",
+        "chaosScore": 7, "costScore": 3, "mustDo": true,
+        "lat": 13.7463, "lng": 100.4930,
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Wat_Pho%2C_Bangkok%2C_Tailandia%2C_2013-08-22%2C_DD_10.jpg/960px-Wat_Pho%2C_Bangkok%2C_Tailandia%2C_2013-08-22%2C_DD_10.jpg",
+        "images": ["https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Wat_Pho%2C_Bangkok%2C_Tailandia%2C_2013-08-22%2C_DD_10.jpg/960px-Wat_Pho%2C_Bangkok%2C_Tailandia%2C_2013-08-22%2C_DD_10.jpg","https://images.unsplash.com/photo-1528181304800-259b08848526?auto=format&fit=crop&w=800&q=80"]
+    },
+    {
+        "id": 27,
+        "name": "BACC (Bangkok Art & Culture Centre)",
+        "category": "Classics",
+        "tagline": "Bangkok's contemporary art hub.",
+        "description": "Multi-story contemporary arts center near Siam. Features rotating exhibitions, art galleries, bookshops, and cafes. The striking spiral atrium architecture makes it a destination in itself. Free admission to the main galleries.",
+        "insiderTip": "Start from the top floor and spiral your way down. Hidden indie galleries and craft shops on every level. Great air-conditioned escape from the heat.",
+        "location": "National Stadium BTS",
+        "mapLink": "https://www.google.com/maps/search/?api=1&query=Bangkok+Art+and+Culture+Centre",
+        "vibe": "Creative, Cool",
+        "chaosScore": 2, "costScore": 1, "mustDo": false,
+        "lat": 13.7467, "lng": 100.5300,
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/Bangkok_Art_and_Culture_Centre_%2819405194938%29.jpg/960px-Bangkok_Art_and_Culture_Centre_%2819405194938%29.jpg",
+        "images": ["https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/Bangkok_Art_and_Culture_Centre_%2819405194938%29.jpg/960px-Bangkok_Art_and_Culture_Centre_%2819405194938%29.jpg","https://images.unsplash.com/photo-1513364776144-60967b0f800f?auto=format&fit=crop&w=800&q=80"]
+    },
+    {
+        "id": 29,
+        "name": "Golden Mount (Wat Saket)",
+        "category": "Classics",
+        "tagline": "360Â° views from the sacred hilltop temple.",
+        "description": "A hill-top temple with panoramic views of old Bangkok. Climb 344 steps through a winding path with bells and shrines. At the top sits a golden chedi housing a relic of Buddha brought from Sri Lanka.",
+        "insiderTip": "Go at sunset â€” the golden light on the chedi is magical. During Loi Krathong in November, there's a spectacular candlelight procession up the mountain.",
+        "location": "Pom Prap Sattru Phai",
+        "mapLink": "https://www.google.com/maps/search/?api=1&query=Golden+Mount+Wat+Saket+Bangkok",
+        "vibe": "Panoramic, Historic",
+        "chaosScore": 4, "costScore": 2, "mustDo": true,
+        "lat": 13.7539, "lng": 100.5083,
+        "image": "https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Wat_Saket_(Golden_Mount).jpg&width=800",
+        "images": ["https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Wat_Saket_(Golden_Mount).jpg&width=800"]
     },
     {
         "id": 18,
@@ -299,12 +324,10 @@ const SPOTS_DATA = [
         "location": "Tha Phra Chan",
         "mapLink": "https://www.google.com/maps/search/?api=1&query=Tha+Phra+Chan+Amulet+Market",
         "vibe": "Mystical, Local",
-        "chaosScore": 6,
-        "costScore": 1,
-        "mustDo": false,
-        "lat": 13.7555,
-        "lng": 100.4895,
-        "image": "https://images.unsplash.com/photo-1504214208698-ea1916a2195a?auto=format&fit=crop&w=800&q=80"
+        "chaosScore": 6, "costScore": 1, "mustDo": false,
+        "lat": 13.7555, "lng": 100.4895,
+        "image": "https://images.unsplash.com/photo-1504214208698-ea1916a2195a?auto=format&fit=crop&w=800&q=80",
+        "images": ["https://images.unsplash.com/photo-1504214208698-ea1916a2195a?auto=format&fit=crop&w=800&q=80","https://images.unsplash.com/photo-1528181304800-259b08848526?auto=format&fit=crop&w=800&q=80"]
     },
     {
         "id": 19,
@@ -316,12 +339,10 @@ const SPOTS_DATA = [
         "location": "Thonburi (West Bank)",
         "mapLink": "https://www.google.com/maps/search/?api=1&query=Kudichin+Community",
         "vibe": "Quiet, Historic",
-        "chaosScore": 2,
-        "costScore": 2,
-        "mustDo": true,
-        "lat": 13.7375,
-        "lng": 100.4930,
-        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dc/Kudichin_01.jpg/640px-Kudichin_01.jpg"
+        "chaosScore": 2, "costScore": 2, "mustDo": true,
+        "lat": 13.7375, "lng": 100.4930,
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dc/Kudichin_01.jpg/640px-Kudichin_01.jpg",
+        "images": ["https://upload.wikimedia.org/wikipedia/commons/thumb/d/dc/Kudichin_01.jpg/640px-Kudichin_01.jpg"]
     },
     {
         "id": 20,
@@ -333,12 +354,10 @@ const SPOTS_DATA = [
         "location": "Thonburi (River)",
         "mapLink": "https://www.google.com/maps/search/?api=1&query=Kuan+An+Keng+Shrine",
         "vibe": "Peaceful, Intricate",
-        "chaosScore": 1,
-        "costScore": 1,
-        "mustDo": false,
-        "lat": 13.7400,
-        "lng": 100.4910,
-        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Kuan_An_Keng_Shrine_02.jpg/640px-Kuan_An_Keng_Shrine_02.jpg"
+        "chaosScore": 1, "costScore": 1, "mustDo": false,
+        "lat": 13.7400, "lng": 100.4910,
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Kuan_An_Keng_Shrine_02.jpg/640px-Kuan_An_Keng_Shrine_02.jpg",
+        "images": ["https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Kuan_An_Keng_Shrine_02.jpg/640px-Kuan_An_Keng_Shrine_02.jpg"]
     },
     {
         "id": 15,
@@ -350,12 +369,10 @@ const SPOTS_DATA = [
         "location": "Dhevet Pier",
         "mapLink": "https://www.google.com/maps/search/?api=1&query=Steve+Cafe+and+Cuisine+Dhevet",
         "vibe": "Breezy, Authentic",
-        "chaosScore": 3,
-        "costScore": 6,
-        "mustDo": true,
-        "lat": 13.7705,
-        "lng": 100.5030,
-        "image": "https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=800&q=80"
+        "chaosScore": 3, "costScore": 6, "mustDo": true,
+        "lat": 13.7705, "lng": 100.5030,
+        "image": "https://images.unsplash.com/photo-1552566626-52f8b828add9?auto=format&fit=crop&w=800&q=80",
+        "images": ["https://images.unsplash.com/photo-1552566626-52f8b828add9?auto=format&fit=crop&w=800&q=80","https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=800&q=80"]
     },
     {
         "id": 16,
@@ -367,12 +384,10 @@ const SPOTS_DATA = [
         "location": "Kamphaeng Phet MRT",
         "mapLink": "https://www.google.com/maps/search/?api=1&query=Or+Tor+Kor+Market",
         "vibe": "Delicious, Clean",
-        "chaosScore": 5,
-        "costScore": 5,
-        "mustDo": true,
-        "lat": 13.7975,
-        "lng": 100.5470,
-        "image": "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=800&q=80"
+        "chaosScore": 5, "costScore": 5, "mustDo": true,
+        "lat": 13.7975, "lng": 100.5470,
+        "image": "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=800&q=80",
+        "images": ["https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=800&q=80","https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=800&q=80"]
     },
     {
         "id": 17,
@@ -384,12 +399,55 @@ const SPOTS_DATA = [
         "location": "Chakphet Road",
         "mapLink": "https://www.google.com/maps/search/?api=1&query=Pak+Khlong+Talat",
         "vibe": "Chaotic, Fragrant, Local",
-        "chaosScore": 8,
-        "costScore": 2,
-        "mustDo": true,
-        "lat": 13.7415,
-        "lng": 100.4960,
-        "image": "https://images.unsplash.com/photo-1487530811176-3780de880c2d?auto=format&fit=crop&w=800&q=80"
+        "chaosScore": 8, "costScore": 2, "mustDo": true,
+        "lat": 13.7415, "lng": 100.4960,
+        "image": "https://images.unsplash.com/photo-1490750967868-88aa4f44baee?auto=format&fit=crop&w=800&q=80",
+        "images": ["https://images.unsplash.com/photo-1490750967868-88aa4f44baee?auto=format&fit=crop&w=800&q=80","https://images.unsplash.com/photo-1487530811176-3780de880c2d?auto=format&fit=crop&w=800&q=80"]
+    },
+    {
+        "id": 26,
+        "name": "Chinatown (Yaowarat Road)",
+        "category": "Food",
+        "tagline": "Street food heaven under neon lights.",
+        "description": "Bangkok's vibrant Chinatown stretches along the neon-lit Yaowarat Road. At night it transforms into one of the world's greatest street food destinations. Gold shops by day, wok-fired seafood, dim sum, and icy desserts by night.",
+        "insiderTip": "Come hungry around 7 PM. Get Pad Thai at Thip Samai (nearby), then seafood at T&K. Take MRT to Wat Mangkon station.",
+        "location": "Yaowarat Road, Samphanthawong",
+        "mapLink": "https://www.google.com/maps/search/?api=1&query=Yaowarat+Road+Bangkok+Chinatown",
+        "vibe": "Electric, Delicious",
+        "chaosScore": 9, "costScore": 3, "mustDo": true,
+        "lat": 13.7411, "lng": 100.5083,
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/64/Yaowarat_at_night_%2832455695783%29.jpg/960px-Yaowarat_at_night_%2832455695783%29.jpg",
+        "images": ["https://upload.wikimedia.org/wikipedia/commons/thumb/6/64/Yaowarat_at_night_%2832455695783%29.jpg/960px-Yaowarat_at_night_%2832455695783%29.jpg","https://images.unsplash.com/photo-1559592413-7cec4d0cae2b?auto=format&fit=crop&w=800&q=80"]
+    },
+    {
+        "id": 24,
+        "name": "Talat Rot Fai Srinakarin",
+        "category": "Food",
+        "tagline": "Vintage treasure hunt meets Thai food paradise.",
+        "description": "Massive open-air night market famous for vintage collectibles, retro furniture, and VW van bars. The food section offers everything from gourmet burgers to Thai street food classics.",
+        "insiderTip": "Take a taxi or Grab â€” it's far from center. Go Friday/Saturday night for the full experience. The vintage car area is Instagram gold.",
+        "location": "Srinakarin Road (behind Seacon Square)",
+        "mapLink": "https://www.google.com/maps/search/?api=1&query=Train+Night+Market+Srinakarin",
+        "vibe": "Retro, Buzzing",
+        "chaosScore": 7, "costScore": 3, "mustDo": false,
+        "lat": 13.6795, "lng": 100.6470,
+        "image": "https://images.unsplash.com/photo-1567337710282-00832b415979?auto=format&fit=crop&w=800&q=80",
+        "images": ["https://images.unsplash.com/photo-1567337710282-00832b415979?auto=format&fit=crop&w=800&q=80","https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=800&q=80"]
+    },
+    {
+        "id": 30,
+        "name": "Jodd Fairs (Dan Neramit)",
+        "category": "Food",
+        "tagline": "Bangkok's trendiest night market.",
+        "description": "The successor to the legendary Ratchada night market. Sprawling open-air market with hundreds of food vendors, craft cocktails, live music, and vintage shops. Known for the famous bin-crab omelette.",
+        "insiderTip": "The 'Fire Crab' omelette stalls have long queues â€” join early. Craft beer tents in the back are excellent. Phra Ram 9 MRT.",
+        "location": "Phra Ram 9",
+        "mapLink": "https://www.google.com/maps/search/?api=1&query=Jodd+Fairs+Dan+Neramit",
+        "vibe": "Trendy, Festive",
+        "chaosScore": 8, "costScore": 3, "mustDo": true,
+        "lat": 13.7618, "lng": 100.5595,
+        "image": "https://images.unsplash.com/photo-1504940892017-d23b9053d5d4?auto=format&fit=crop&w=800&q=80",
+        "images": ["https://images.unsplash.com/photo-1504940892017-d23b9053d5d4?auto=format&fit=crop&w=800&q=80","https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=800&q=80"]
     }
 ]
 ;

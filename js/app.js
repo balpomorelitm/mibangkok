@@ -2,7 +2,11 @@
 let spots = [];
 let savedSpots = new Set();
 let currentFilter = 'all';
+let searchQuery = '';
 let map;
+let routeLayer = null;
+let markers = [];
+let userLocationMarker = null;
 
 // ===== CATEGORY COLORS =====
 const categoryColors = {
@@ -24,6 +28,8 @@ document.addEventListener('DOMContentLoaded', () => {
     renderCharts();
     updateSavedCount();
     initScrollAnimations();
+    initSearch();
+    initItinerary();
 });
 
 // ===== DATA LOADING =====
@@ -46,6 +52,16 @@ function initNavbarScroll() {
     );
     const hero = document.querySelector('.hero');
     if (hero) observer.observe(hero);
+}
+
+// ===== SEARCH =====
+function initSearch() {
+    const input = document.getElementById('search-input');
+    if (!input) return;
+    input.addEventListener('input', (e) => {
+        searchQuery = e.target.value.toLowerCase().trim();
+        renderCards();
+    });
 }
 
 // ===== MAP =====
@@ -101,7 +117,109 @@ function initMap() {
         `;
 
         marker.bindPopup(popupContent);
+        marker.spotId = spot.id;
+        markers.push(marker);
     });
+}
+
+// ===== ROUTE ON MAP =====
+function drawRoute() {
+    // Remove existing route
+    if (routeLayer) {
+        map.removeLayer(routeLayer);
+        routeLayer = null;
+    }
+
+    if (savedSpots.size < 2) return;
+
+    const savedArr = spots.filter(s => savedSpots.has(s.id));
+    const latlngs = savedArr.map(s => [s.lat, s.lng]);
+
+    routeLayer = L.polyline(latlngs, {
+        color: '#D4622B',
+        weight: 3,
+        opacity: 0.8,
+        dashArray: '10, 8',
+        lineJoin: 'round'
+    }).addTo(map);
+
+    // Add numbered markers for route order
+    savedArr.forEach((spot, idx) => {
+        L.marker([spot.lat, spot.lng], {
+            icon: L.divIcon({
+                html: `<div class="route-number">${idx + 1}</div>`,
+                className: 'route-marker',
+                iconSize: [24, 24],
+                iconAnchor: [12, 12]
+            })
+        }).addTo(map);
+    });
+
+    map.fitBounds(routeLayer.getBounds(), { padding: [40, 40] });
+}
+
+// ===== GEOLOCATION / NEAR ME =====
+function locateMe() {
+    const btn = document.getElementById('locate-btn');
+    if (!navigator.geolocation) {
+        alert('Geolocation is not supported by your browser.');
+        return;
+    }
+
+    if (btn) btn.classList.add('loading');
+
+    navigator.geolocation.getCurrentPosition(
+        (position) => {
+            const userLat = position.coords.latitude;
+            const userLng = position.coords.longitude;
+
+            // Add user marker
+            if (userLocationMarker) map.removeLayer(userLocationMarker);
+            userLocationMarker = L.marker([userLat, userLng], {
+                icon: L.divIcon({
+                    html: '<div class="user-marker-dot"></div>',
+                    className: 'user-marker',
+                    iconSize: [20, 20],
+                    iconAnchor: [10, 10]
+                })
+            }).addTo(map).bindPopup('You are here').openPopup();
+
+            // Sort spots by distance
+            spots.sort((a, b) => {
+                const distA = haversine(userLat, userLng, a.lat, a.lng);
+                const distB = haversine(userLat, userLng, b.lat, b.lng);
+                return distA - distB;
+            });
+
+            // Add distance info to spots
+            spots.forEach(s => {
+                s._distance = haversine(userLat, userLng, s.lat, s.lng);
+            });
+
+            renderCards();
+            map.setView([userLat, userLng], 13);
+
+            if (btn) {
+                btn.classList.remove('loading');
+                btn.classList.add('active');
+            }
+        },
+        (error) => {
+            if (btn) btn.classList.remove('loading');
+            alert('Could not get your location. Please enable location services.');
+        },
+        { enableHighAccuracy: true, timeout: 10000 }
+    );
+}
+
+function haversine(lat1, lon1, lat2, lon2) {
+    const R = 6371;
+    const dLat = (lat2 - lat1) * Math.PI / 180;
+    const dLon = (lon2 - lon1) * Math.PI / 180;
+    const a = Math.sin(dLat/2) * Math.sin(dLat/2) +
+              Math.cos(lat1 * Math.PI / 180) * Math.cos(lat2 * Math.PI / 180) *
+              Math.sin(dLon/2) * Math.sin(dLon/2);
+    return R * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
 }
 
 // ===== FILTERS =====
@@ -124,7 +242,7 @@ function renderFilters() {
     container.innerHTML = '';
     categories.forEach(cat => {
         const btn = document.createElement('button');
-        btn.className = `filter-btn ${cat === 'all' ? 'active' : ''}`;
+        btn.className = `filter-btn ${cat === currentFilter ? 'active' : ''}`;
         btn.dataset.filter = cat;
         btn.textContent = labels[cat] || cat;
         btn.addEventListener('click', () => setFilter(cat));
@@ -148,13 +266,20 @@ function renderCards() {
     grid.innerHTML = '';
 
     const filtered = spots.filter(spot => {
-        if (currentFilter === 'all') return true;
-        if (currentFilter === 'Saved') return savedSpots.has(spot.id);
-        return spot.category === currentFilter;
+        // Category filter
+        if (currentFilter === 'Saved' && !savedSpots.has(spot.id)) return false;
+        if (currentFilter !== 'all' && currentFilter !== 'Saved' && spot.category !== currentFilter) return false;
+
+        // Search filter
+        if (searchQuery) {
+            const haystack = `${spot.name} ${spot.category} ${spot.tagline} ${spot.description} ${spot.location} ${spot.vibe}`.toLowerCase();
+            return haystack.includes(searchQuery);
+        }
+        return true;
     });
 
     if (filtered.length === 0) {
-        grid.innerHTML = `<div class="empty-state"><p>No spots found in this category.</p></div>`;
+        grid.innerHTML = `<div class="empty-state"><p>No spots found.</p></div>`;
         return;
     }
 
@@ -163,6 +288,10 @@ function renderCards() {
         const card = document.createElement('div');
         card.className = 'card fade-in';
         card.onclick = (e) => { if (!e.target.closest('.save-btn')) openModal(spot.id); };
+
+        const distanceHtml = spot._distance !== undefined
+            ? `<span class="card-distance">${spot._distance.toFixed(1)} km</span>`
+            : '';
 
         card.innerHTML = `
             <div class="card-image-wrapper">
@@ -177,7 +306,7 @@ function renderCards() {
                     <p class="card-desc">${spot.description}</p>
                 </div>
                 <div class="card-footer">
-                    <span class="card-location">📍 ${spot.location}</span>
+                    <span class="card-location">📍 ${spot.location} ${distanceHtml}</span>
                     <button class="save-btn ${isSaved ? 'saved' : ''}" onclick="toggleSave(event, ${spot.id})">
                         ${isSaved ? '♥ Saved' : '♡ Save'}
                     </button>
@@ -186,8 +315,6 @@ function renderCards() {
         `;
 
         grid.appendChild(card);
-
-        // Trigger animation
         requestAnimationFrame(() => {
             setTimeout(() => card.classList.add('visible'), index * 60);
         });
@@ -201,11 +328,115 @@ function toggleSave(e, id) {
     else savedSpots.add(id);
     updateSavedCount();
     renderCards();
+    renderItinerary();
+    drawRoute();
 }
 
 function updateSavedCount() {
     const el = document.getElementById('saved-count');
     if (el) el.textContent = savedSpots.size;
+}
+
+// ===== ITINERARY BUILDER =====
+function initItinerary() {
+    renderItinerary();
+}
+
+function renderItinerary() {
+    const container = document.getElementById('itinerary-list');
+    const emptyState = document.getElementById('itinerary-empty');
+    const content = document.getElementById('itinerary-content');
+    if (!container) return;
+
+    const savedArr = spots.filter(s => savedSpots.has(s.id));
+
+    if (savedArr.length === 0) {
+        if (emptyState) emptyState.style.display = 'block';
+        if (content) content.style.display = 'none';
+        return;
+    }
+
+    if (emptyState) emptyState.style.display = 'none';
+    if (content) content.style.display = 'block';
+
+    container.innerHTML = '';
+    savedArr.forEach((spot, idx) => {
+        const item = document.createElement('div');
+        item.className = 'itinerary-item';
+        item.draggable = true;
+        item.dataset.id = spot.id;
+
+        const color = categoryColors[spot.category]?.hex || '#888';
+        item.innerHTML = `
+            <div class="itinerary-number">${idx + 1}</div>
+            <div class="itinerary-info">
+                <div class="itinerary-name">${spot.name}</div>
+                <div class="itinerary-cat" style="color:${color}">${spot.category} · ${spot.location}</div>
+            </div>
+            <div class="itinerary-actions">
+                <button class="itinerary-up" onclick="moveItinerary(${spot.id}, -1)" title="Move up">▲</button>
+                <button class="itinerary-down" onclick="moveItinerary(${spot.id}, 1)" title="Move down">▼</button>
+                <button class="itinerary-remove" onclick="toggleSave(event, ${spot.id})" title="Remove">✕</button>
+            </div>
+        `;
+
+        // Drag events
+        item.addEventListener('dragstart', handleDragStart);
+        item.addEventListener('dragover', handleDragOver);
+        item.addEventListener('drop', handleDrop);
+        item.addEventListener('dragend', handleDragEnd);
+
+        container.appendChild(item);
+    });
+
+    // Update route on map
+    drawRoute();
+}
+
+let dragSrcId = null;
+
+function handleDragStart(e) {
+    dragSrcId = parseInt(this.dataset.id);
+    this.classList.add('dragging');
+    e.dataTransfer.effectAllowed = 'move';
+}
+
+function handleDragOver(e) {
+    e.preventDefault();
+    e.dataTransfer.dropEffect = 'move';
+    this.classList.add('drag-over');
+}
+
+function handleDrop(e) {
+    e.preventDefault();
+    this.classList.remove('drag-over');
+    const dropId = parseInt(this.dataset.id);
+    if (dragSrcId === dropId) return;
+
+    // Reorder savedSpots
+    const arr = [...savedSpots];
+    const fromIdx = arr.indexOf(dragSrcId);
+    const toIdx = arr.indexOf(dropId);
+    arr.splice(fromIdx, 1);
+    arr.splice(toIdx, 0, dragSrcId);
+    savedSpots = new Set(arr);
+    renderItinerary();
+}
+
+function handleDragEnd() {
+    this.classList.remove('dragging');
+    document.querySelectorAll('.drag-over').forEach(el => el.classList.remove('drag-over'));
+}
+
+function moveItinerary(id, direction) {
+    const arr = [...savedSpots];
+    const idx = arr.indexOf(id);
+    const newIdx = idx + direction;
+    if (newIdx < 0 || newIdx >= arr.length) return;
+    [arr[idx], arr[newIdx]] = [arr[newIdx], arr[idx]];
+    savedSpots = new Set(arr);
+    renderItinerary();
+    drawRoute();
 }
 
 // ===== CHARTS =====
@@ -323,7 +554,10 @@ function renderCategoryChart() {
     });
 }
 
-// ===== MODAL =====
+// ===== MODAL WITH GALLERY =====
+let currentGalleryIndex = 0;
+let currentGalleryImages = [];
+
 function openModal(id) {
     const spot = spots.find(s => s.id === id);
     if (!spot) return;
@@ -332,11 +566,27 @@ function openModal(id) {
     const body = document.getElementById('modal-body');
 
     const vibes = spot.vibe.split(',').map(v => `<span class="vibe-tag">${v.trim()}</span>`).join('');
+    const galleryImages = spot.images || [spot.image];
+
+    currentGalleryImages = galleryImages;
+    currentGalleryIndex = 0;
+
+    const galleryDots = galleryImages.length > 1
+        ? `<div class="gallery-dots">${galleryImages.map((_, i) => `<span class="gallery-dot ${i === 0 ? 'active' : ''}" onclick="goToSlide(${i})"></span>`).join('')}</div>`
+        : '';
+
+    const galleryNav = galleryImages.length > 1
+        ? `<button class="gallery-prev" onclick="prevSlide(event)">‹</button><button class="gallery-next" onclick="nextSlide(event)">›</button>`
+        : '';
 
     body.innerHTML = `
         <button class="modal-close" onclick="closeModal()" aria-label="Close">&times;</button>
         <div class="modal-hero">
-            <img src="${spot.image}" alt="${spot.name}">
+            <div class="gallery-container">
+                <img id="gallery-img" src="${galleryImages[0]}" alt="${spot.name}">
+                ${galleryNav}
+                ${galleryDots}
+            </div>
             <div class="modal-hero-overlay">
                 <div class="modal-hero-text">
                     <span class="modal-category">${spot.category}</span>
@@ -376,6 +626,37 @@ function openModal(id) {
     document.body.style.overflow = 'hidden';
 }
 
+function prevSlide(e) {
+    e.stopPropagation();
+    currentGalleryIndex = (currentGalleryIndex - 1 + currentGalleryImages.length) % currentGalleryImages.length;
+    updateGallery();
+}
+
+function nextSlide(e) {
+    e.stopPropagation();
+    currentGalleryIndex = (currentGalleryIndex + 1) % currentGalleryImages.length;
+    updateGallery();
+}
+
+function goToSlide(idx) {
+    currentGalleryIndex = idx;
+    updateGallery();
+}
+
+function updateGallery() {
+    const img = document.getElementById('gallery-img');
+    if (img) {
+        img.style.opacity = '0';
+        setTimeout(() => {
+            img.src = currentGalleryImages[currentGalleryIndex];
+            img.style.opacity = '1';
+        }, 200);
+    }
+    document.querySelectorAll('.gallery-dot').forEach((dot, i) => {
+        dot.classList.toggle('active', i === currentGalleryIndex);
+    });
+}
+
 function closeModal() {
     const overlay = document.getElementById('modal-overlay');
     overlay.classList.remove('showing');
@@ -397,6 +678,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
 document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') closeModal();
+    if (e.key === 'ArrowLeft') { prevSlide(e); }
+    if (e.key === 'ArrowRight') { nextSlide(e); }
 });
 
 // ===== SCROLL ANIMATIONS =====

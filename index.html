@@ -25,9 +25,14 @@
                 <span>PABLO'S <span class="accent">BANGKOK</span></span>
                 <span class="subtitle">Insider Guide</span>
             </div>
-            <div class="saved-badge">
-                <span class="saved-count" id="saved-count">0</span>
-                Saved
+            <div class="navbar-actions">
+                <button class="nav-btn" id="locate-btn" onclick="locateMe()" title="Find spots near me">
+                    📍 Near Me
+                </button>
+                <div class="saved-badge" onclick="scrollToSection('itinerary-section')">
+                    <span class="saved-count" id="saved-count">0</span>
+                    Saved
+                </div>
             </div>
         </div>
     </nav>
@@ -66,7 +71,7 @@
             <div class="section-header">
                 <span class="section-label">Interactive</span>
                 <h2 class="section-title" style="color:#fff">Visual Explorer</h2>
-                <p class="section-subtitle" style="color:rgba(255,255,255,0.5)">Click on any pin to see photos and details.</p>
+                <p class="section-subtitle" style="color:rgba(255,255,255,0.5)">Click on any pin to see photos and details. Save spots to build a route.</p>
             </div>
             <div class="map-wrapper">
                 <div id="map"></div>
@@ -80,7 +85,13 @@
             <div class="section-header">
                 <span class="section-label">Curated</span>
                 <h2 class="section-title">The Directory</h2>
-                <p class="section-subtitle">Select a category to filter my recommendations.</p>
+                <p class="section-subtitle">Search or filter my recommendations.</p>
+            </div>
+
+            <!-- Search Bar -->
+            <div class="search-bar">
+                <span class="search-icon">🔍</span>
+                <input type="text" id="search-input" placeholder="Search by name, zone, category, or vibe..." autocomplete="off">
             </div>
 
             <!-- Filters -->
@@ -91,6 +102,29 @@
             <!-- Grid -->
             <div class="cards-grid" id="cards-grid">
                 <!-- Cards injected by JS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Section: My Itinerary -->
+    <section id="itinerary-section" class="section itinerary-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Planner</span>
+                <h2 class="section-title">My Itinerary</h2>
+                <p class="section-subtitle">Drag and reorder your saved spots to build your perfect day.</p>
+            </div>
+
+            <div id="itinerary-empty" class="itinerary-empty">
+                <div class="itinerary-empty-icon">🗺️</div>
+                <p>No spots saved yet! Browse the directory and click <strong>♡ Save</strong> to start building your itinerary.</p>
+            </div>
+
+            <div id="itinerary-content" class="itinerary-content" style="display:none">
+                <div id="itinerary-list" class="itinerary-list">
+                    <!-- Items injected by JS -->
+                </div>
+                <p class="itinerary-hint">💡 Drag items to reorder. Your route is shown on the map above.</p>
             </div>
         </div>
     </section>
