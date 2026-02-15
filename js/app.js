@@ -558,6 +558,21 @@ function renderCategoryChart() {
 let currentGalleryIndex = 0;
 let currentGalleryImages = [];
 
+// ===== NEARBY SPOTS =====
+const NEARBY_RADIUS_KM = 2.5; // ~15 min walk/ride
+
+function getNearbySpots(spot, limit = 5) {
+    return spots
+        .filter(s => s.id !== spot.id)
+        .map(s => ({
+            ...s,
+            dist: haversine(spot.lat, spot.lng, s.lat, s.lng)
+        }))
+        .filter(s => s.dist <= NEARBY_RADIUS_KM)
+        .sort((a, b) => a.dist - b.dist)
+        .slice(0, limit);
+}
+
 function openModal(id) {
     const spot = spots.find(s => s.id === id);
     if (!spot) return;
@@ -579,6 +594,34 @@ function openModal(id) {
         ? `<button class="gallery-prev" onclick="prevSlide(event)">‹</button><button class="gallery-next" onclick="nextSlide(event)">›</button>`
         : '';
 
+    const isSaved = savedSpots.has(spot.id);
+    const saveBtn = `<button class="modal-save-btn ${isSaved ? 'saved' : ''}" onclick="toggleSaveFromModal(${spot.id})">
+        ${isSaved ? '♥ Saved to Itinerary' : '♡ Add to Itinerary'}
+    </button>`;
+
+    // Nearby spots
+    const nearby = getNearbySpots(spot);
+    let nearbyHtml = '';
+    if (nearby.length > 0) {
+        const nearbyCards = nearby.map(ns => {
+            const color = categoryColors[ns.category]?.hex || '#888';
+            return `<div class="nearby-card" onclick="openModal(${ns.id})">
+                <img src="${ns.image}" alt="${ns.name}" loading="lazy">
+                <div class="nearby-card-body">
+                    <span class="nearby-card-cat" style="color:${color}">${ns.category}</span>
+                    <span class="nearby-card-name">${ns.name}</span>
+                    <span class="nearby-card-dist">${(ns.dist * 1000).toFixed(0)}m away</span>
+                </div>
+            </div>`;
+        }).join('');
+
+        nearbyHtml = `
+            <div class="modal-nearby">
+                <h4>📍 Nearby (< 15 min)</h4>
+                <div class="nearby-scroll">${nearbyCards}</div>
+            </div>`;
+    }
+
     body.innerHTML = `
         <button class="modal-close" onclick="closeModal()" aria-label="Close">&times;</button>
         <div class="modal-hero">
@@ -595,6 +638,7 @@ function openModal(id) {
             </div>
         </div>
         <div class="modal-details">
+            ${saveBtn}
             <p class="modal-tagline">"${spot.tagline}"</p>
             <div class="modal-grid">
                 <div class="modal-info">
@@ -616,6 +660,7 @@ function openModal(id) {
                     Open in Google Maps ↗
                 </a>
             </div>
+            ${nearbyHtml}
         </div>
     `;
 
@@ -624,6 +669,22 @@ function openModal(id) {
         overlay.classList.add('showing');
     });
     document.body.style.overflow = 'hidden';
+}
+
+function toggleSaveFromModal(id) {
+    if (savedSpots.has(id)) savedSpots.delete(id);
+    else savedSpots.add(id);
+    updateSavedCount();
+    renderCards();
+    renderItinerary();
+    drawRoute();
+    // Update button in modal
+    const btn = document.querySelector('.modal-save-btn');
+    if (btn) {
+        const isSaved = savedSpots.has(id);
+        btn.className = `modal-save-btn ${isSaved ? 'saved' : ''}`;
+        btn.innerHTML = isSaved ? '♥ Saved to Itinerary' : '♡ Add to Itinerary';
+    }
 }
 
 function prevSlide(e) {

@@ -1,4 +1,4 @@
-﻿const SPOTS_DATA = [
+const SPOTS_DATA = [
     {
         "id": 1,
         "name": "The Friese-Greene Club",
@@ -11,8 +11,8 @@
         "vibe": "Secret, Intimate",
         "chaosScore": 2, "costScore": 5, "mustDo": false,
         "lat": 13.7323, "lng": 100.5644,
-        "image": "https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c?auto=format&fit=crop&w=800&q=80",
-        "images": ["https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c?auto=format&fit=crop&w=800&q=80","https://images.unsplash.com/photo-1478720568477-152d9b164e26?auto=format&fit=crop&w=800&q=80","https://images.unsplash.com/photo-1440404653325-ab127d49abc1?auto=format&fit=crop&w=800&q=80"]
+        "image": "assets/fotos/friese 1.jpg",
+        "images": ["assets/fotos/friese 1.jpg", "assets/fotos/the-friese-greene-club.jpg"]
     },
     {
         "id": 2,
@@ -26,8 +26,8 @@
         "vibe": "Retro-cool, Audiophile",
         "chaosScore": 6, "costScore": 6, "mustDo": true,
         "lat": 13.7290, "lng": 100.5780,
-        "image": "https://images.unsplash.com/photo-1566737236500-c8ac43014a67?auto=format&fit=crop&w=800&q=80",
-        "images": ["https://images.unsplash.com/photo-1566737236500-c8ac43014a67?auto=format&fit=crop&w=800&q=80","https://images.unsplash.com/photo-1571266028243-d220c6a8518e?auto=format&fit=crop&w=800&q=80","https://images.unsplash.com/photo-1415201364774-f6f0bb35f28f?auto=format&fit=crop&w=800&q=80"]
+        "image": "assets/fotos/studio lam.jpg",
+        "images": ["assets/fotos/studio lam.jpg", "assets/fotos/studio lam 2.jpg", "assets/fotos/studiolam.jpeg"]
     },
     {
         "id": 3,
@@ -41,8 +41,8 @@
         "vibe": "Bohemian, Quirky",
         "chaosScore": 4, "costScore": 5, "mustDo": false,
         "lat": 13.7380, "lng": 100.5890,
-        "image": "https://images.unsplash.com/photo-1462826303086-329426d1aef5?auto=format&fit=crop&w=800&q=80",
-        "images": ["https://images.unsplash.com/photo-1462826303086-329426d1aef5?auto=format&fit=crop&w=800&q=80","https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&w=800&q=80"]
+        "image": "assets/fotos/tuba1.jpg",
+        "images": ["assets/fotos/tuba1.jpg", "assets/fotos/tuba 2.jpg", "assets/fotos/tuba3.jpg"]
     },
     {
         "id": 4,
@@ -56,8 +56,8 @@
         "vibe": "Divey, Loud",
         "chaosScore": 9, "costScore": 2, "mustDo": false,
         "lat": 13.7225, "lng": 100.5460,
-        "image": "https://images.unsplash.com/photo-1572116469696-31de0f17cc34?auto=format&fit=crop&w=800&q=80",
-        "images": ["https://images.unsplash.com/photo-1572116469696-31de0f17cc34?auto=format&fit=crop&w=800&q=80","https://images.unsplash.com/photo-1514933651103-005eec06c04b?auto=format&fit=crop&w=800&q=80"]
+        "image": "assets/fotos/wongs.jpg",
+        "images": ["assets/fotos/wongs.jpg", "assets/fotos/wongs2.jpg"]
     },
     {
         "id": 5,
@@ -71,8 +71,8 @@
         "vibe": "Unpretentious, Surreal",
         "chaosScore": 3, "costScore": 2, "mustDo": false,
         "lat": 13.7235, "lng": 100.5405,
-        "image": "https://images.unsplash.com/photo-1575444758702-4a6b9222c016?auto=format&fit=crop&w=800&q=80",
-        "images": ["https://images.unsplash.com/photo-1575444758702-4a6b9222c016?auto=format&fit=crop&w=800&q=80","https://images.unsplash.com/photo-1543007630-9710e4a00a20?auto=format&fit=crop&w=800&q=80"]
+        "image": "assets/fotos/jusmag1.webp",
+        "images": ["assets/fotos/jusmag1.webp"]
     },
     {
         "id": 8,
@@ -86,8 +86,8 @@
         "vibe": "Vintage, Hip",
         "chaosScore": 5, "costScore": 5, "mustDo": true,
         "lat": 13.7395, "lng": 100.5145,
-        "image": "https://images.unsplash.com/photo-1559592413-7cec4d0cae2b?auto=format&fit=crop&w=800&q=80",
-        "images": ["https://images.unsplash.com/photo-1559592413-7cec4d0cae2b?auto=format&fit=crop&w=800&q=80","https://images.unsplash.com/photo-1567521464027-f127ff144326?auto=format&fit=crop&w=800&q=80"]
+        "image": "assets/fotos/chiringuito.webp",
+        "images": ["assets/fotos/chiringuito.webp", "assets/fotos/chiringuito 2.jpg"]
     },
     {
         "id": 6,
@@ -101,8 +101,8 @@
         "vibe": "Chill, Scenic",
         "chaosScore": 2, "costScore": 8, "mustDo": true,
         "lat": 13.7135, "lng": 100.5955,
-        "image": "https://images.unsplash.com/photo-1508009603885-50cf7c579365?auto=format&fit=crop&w=800&q=80",
-        "images": ["https://images.unsplash.com/photo-1508009603885-50cf7c579365?auto=format&fit=crop&w=800&q=80","https://images.unsplash.com/photo-1519046904884-53103b34b206?auto=format&fit=crop&w=800&q=80"]
+        "image": "assets/fotos/cielo 11.jpg",
+        "images": ["assets/fotos/cielo 11.jpg", "assets/fotos/cielo 2.jpg"]
     },
     {
         "id": 7,
@@ -116,8 +116,8 @@
         "vibe": "Hidden, Relaxed",
         "chaosScore": 1, "costScore": 3, "mustDo": false,
         "lat": 13.7345, "lng": 100.5135,
-        "image": "https://images.unsplash.com/photo-1506665531195-3566af2b4dfa?auto=format&fit=crop&w=800&q=80",
-        "images": ["https://images.unsplash.com/photo-1506665531195-3566af2b4dfa?auto=format&fit=crop&w=800&q=80","https://images.unsplash.com/photo-1559592413-7cec4d0cae2b?auto=format&fit=crop&w=800&q=80"]
+        "image": "assets/fotos/riverview1.jpg",
+        "images": ["assets/fotos/riverview1.jpg"]
     },
     {
         "id": 28,
@@ -131,8 +131,8 @@
         "vibe": "Festive, Scenic",
         "chaosScore": 6, "costScore": 4, "mustDo": false,
         "lat": 13.7072, "lng": 100.5013,
-        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Asiatique_The_Riverfront_01.jpg/960px-Asiatique_The_Riverfront_01.jpg",
-        "images": ["https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Asiatique_The_Riverfront_01.jpg/960px-Asiatique_The_Riverfront_01.jpg","https://images.unsplash.com/photo-1508009603885-50cf7c579365?auto=format&fit=crop&w=800&q=80"]
+        "image": "assets/fotos/asiatique1.jpg",
+        "images": ["assets/fotos/asiatique1.jpg", "assets/fotos/asiatique2.jpg"]
     },
     {
         "id": 9,
@@ -146,8 +146,8 @@
         "vibe": "Zen, Recovery",
         "chaosScore": 0, "costScore": 6, "mustDo": true,
         "lat": 13.7205, "lng": 100.5690,
-        "image": "https://images.unsplash.com/photo-1540555700478-4be289fbec6a?auto=format&fit=crop&w=800&q=80",
-        "images": ["https://images.unsplash.com/photo-1540555700478-4be289fbec6a?auto=format&fit=crop&w=800&q=80","https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&w=800&q=80"]
+        "image": "assets/fotos/yunomori1.jpeg",
+        "images": ["assets/fotos/yunomori1.jpeg", "assets/fotos/yunomori2.jpeg"]
     },
     {
         "id": 10,
@@ -161,8 +161,8 @@
         "vibe": "Green, Active",
         "chaosScore": 2, "costScore": 2, "mustDo": true,
         "lat": 13.6580, "lng": 100.5750,
-        "image": "https://images.unsplash.com/photo-1548247661-3d7905940716?auto=format&fit=crop&w=800&q=80",
-        "images": ["https://images.unsplash.com/photo-1548247661-3d7905940716?auto=format&fit=crop&w=800&q=80","https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80"]
+        "image": "assets/fotos/bang krachao1.avif",
+        "images": ["assets/fotos/bang krachao1.avif", "assets/fotos/bang krachao2.jpeg"]
     },
     {
         "id": 21,
@@ -176,8 +176,8 @@
         "vibe": "Modern, Green",
         "chaosScore": 1, "costScore": 0, "mustDo": true,
         "lat": 13.7295, "lng": 100.5560,
-        "image": "https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Benchakitti_Forest_Park.jpg&width=800",
-        "images": ["https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Benchakitti_Forest_Park.jpg&width=800","https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=800&q=80"]
+        "image": "assets/fotos/benjakitti 1.jpg",
+        "images": ["assets/fotos/benjakitti 1.jpg", "assets/fotos/benjakitti2.webp"]
     },
     {
         "id": 22,
@@ -191,8 +191,8 @@
         "vibe": "Classic, Active",
         "chaosScore": 3, "costScore": 0, "mustDo": false,
         "lat": 13.7310, "lng": 100.5415,
-        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/Lumphini_Park%2C_Bangkok.jpg/960px-Lumphini_Park%2C_Bangkok.jpg",
-        "images": ["https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/Lumphini_Park%2C_Bangkok.jpg/960px-Lumphini_Park%2C_Bangkok.jpg"]
+        "image": "assets/fotos/lumpini1.jpg",
+        "images": ["assets/fotos/lumpini1.jpg", "assets/fotos/lumpini2.jpeg"]
     },
     {
         "id": 23,
@@ -206,8 +206,8 @@
         "vibe": "Active, Family",
         "chaosScore": 3, "costScore": 1, "mustDo": false,
         "lat": 13.8115, "lng": 100.5560,
-        "image": "https://images.unsplash.com/photo-1558618666-fcd25c85f82e?auto=format&fit=crop&w=800&q=80",
-        "images": ["https://images.unsplash.com/photo-1558618666-fcd25c85f82e?auto=format&fit=crop&w=800&q=80","https://images.unsplash.com/photo-1513364776144-60967b0f800f?auto=format&fit=crop&w=800&q=80"]
+        "image": "assets/fotos/chatuchak1.webp",
+        "images": ["assets/fotos/chatuchak1.webp", "assets/fotos/chatuchak2.jpeg"]
     },
     {
         "id": 11,
@@ -221,8 +221,8 @@
         "vibe": "Historical, Aesthetic",
         "chaosScore": 4, "costScore": 4, "mustDo": true,
         "lat": 13.7495, "lng": 100.5290,
-        "image": "https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Jim_Thompson_House_from_the_garden.jpg&width=800",
-        "images": ["https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Jim_Thompson_House_from_the_garden.jpg&width=800","https://images.unsplash.com/photo-1528181304800-259b08848526?auto=format&fit=crop&w=800&q=80"]
+        "image": "assets/fotos/jim thomsom.jpg",
+        "images": ["assets/fotos/jim thomsom.jpg", "assets/fotos/jim thomsom 2.jpg"]
     },
     {
         "id": 12,
@@ -236,8 +236,8 @@
         "vibe": "Spiritual, Majestic",
         "chaosScore": 7, "costScore": 2, "mustDo": true,
         "lat": 13.7440, "lng": 100.4885,
-        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Wat_Arun_Bangkok.jpg/960px-Wat_Arun_Bangkok.jpg",
-        "images": ["https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Wat_Arun_Bangkok.jpg/960px-Wat_Arun_Bangkok.jpg","https://images.unsplash.com/photo-1563492065599-3520f775eeed?auto=format&fit=crop&w=800&q=80"]
+        "image": "assets/fotos/wat arun1.jpg",
+        "images": ["assets/fotos/wat arun1.jpg", "assets/fotos/wat arun2.jpg"]
     },
     {
         "id": 13,
@@ -251,8 +251,8 @@
         "vibe": "Awe-inspiring, Local",
         "chaosScore": 6, "costScore": 1, "mustDo": false,
         "lat": 13.7215, "lng": 100.4705,
-        "image": "https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Wat_Paknam_Phasicharoen_from_across_the_moat.jpg&width=800",
-        "images": ["https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Wat_Paknam_Phasicharoen_from_across_the_moat.jpg&width=800"]
+        "image": "assets/fotos/wat paknam.jpg",
+        "images": ["assets/fotos/wat paknam.jpg", "assets/fotos/wat paknam2.webp"]
     },
     {
         "id": 14,
@@ -266,8 +266,8 @@
         "vibe": "Peaceful, Traditional",
         "chaosScore": 1, "costScore": 2, "mustDo": false,
         "lat": 13.7510, "lng": 100.5010,
-        "image": "https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Giant_Swing_Bangkok.jpg&width=800",
-        "images": ["https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Giant_Swing_Bangkok.jpg&width=800"]
+        "image": "assets/fotos/wat suthat1.jpg",
+        "images": ["assets/fotos/wat suthat1.jpg"]
     },
     {
         "id": 25,
@@ -275,14 +275,14 @@
         "category": "Classics",
         "tagline": "The Reclining Buddha & birthplace of Thai massage.",
         "description": "One of Bangkok's oldest and largest temple complexes, home to the 46m reclining Buddha covered in gold leaf. Also the first center for public education in Thailand. Houses over 1,000 Buddha images and is the national headquarters for traditional Thai massage.",
-        "insiderTip": "Get a Thai massage inside the temple grounds â€” it's affordable and a unique experience. Go early morning to avoid crowds.",
+        "insiderTip": "Get a Thai massage inside the temple grounds — it's affordable and a unique experience. Go early morning to avoid crowds.",
         "location": "Phra Nakhon (next to Grand Palace)",
         "mapLink": "https://www.google.com/maps/search/?api=1&query=Wat+Pho+Bangkok",
         "vibe": "Spiritual, Grand",
         "chaosScore": 7, "costScore": 3, "mustDo": true,
         "lat": 13.7463, "lng": 100.4930,
-        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Wat_Pho%2C_Bangkok%2C_Tailandia%2C_2013-08-22%2C_DD_10.jpg/960px-Wat_Pho%2C_Bangkok%2C_Tailandia%2C_2013-08-22%2C_DD_10.jpg",
-        "images": ["https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Wat_Pho%2C_Bangkok%2C_Tailandia%2C_2013-08-22%2C_DD_10.jpg/960px-Wat_Pho%2C_Bangkok%2C_Tailandia%2C_2013-08-22%2C_DD_10.jpg","https://images.unsplash.com/photo-1528181304800-259b08848526?auto=format&fit=crop&w=800&q=80"]
+        "image": "assets/fotos/wat pho.jpg",
+        "images": ["assets/fotos/wat pho.jpg", "assets/fotos/watpho.jpg"]
     },
     {
         "id": 27,
@@ -297,22 +297,22 @@
         "chaosScore": 2, "costScore": 1, "mustDo": false,
         "lat": 13.7467, "lng": 100.5300,
         "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/Bangkok_Art_and_Culture_Centre_%2819405194938%29.jpg/960px-Bangkok_Art_and_Culture_Centre_%2819405194938%29.jpg",
-        "images": ["https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/Bangkok_Art_and_Culture_Centre_%2819405194938%29.jpg/960px-Bangkok_Art_and_Culture_Centre_%2819405194938%29.jpg","https://images.unsplash.com/photo-1513364776144-60967b0f800f?auto=format&fit=crop&w=800&q=80"]
+        "images": ["https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/Bangkok_Art_and_Culture_Centre_%2819405194938%29.jpg/960px-Bangkok_Art_and_Culture_Centre_%2819405194938%29.jpg"]
     },
     {
         "id": 29,
         "name": "Golden Mount (Wat Saket)",
         "category": "Classics",
-        "tagline": "360Â° views from the sacred hilltop temple.",
+        "tagline": "360° views from the sacred hilltop temple.",
         "description": "A hill-top temple with panoramic views of old Bangkok. Climb 344 steps through a winding path with bells and shrines. At the top sits a golden chedi housing a relic of Buddha brought from Sri Lanka.",
-        "insiderTip": "Go at sunset â€” the golden light on the chedi is magical. During Loi Krathong in November, there's a spectacular candlelight procession up the mountain.",
+        "insiderTip": "Go at sunset — the golden light on the chedi is magical. During Loi Krathong in November, there's a spectacular candlelight procession up the mountain.",
         "location": "Pom Prap Sattru Phai",
         "mapLink": "https://www.google.com/maps/search/?api=1&query=Golden+Mount+Wat+Saket+Bangkok",
         "vibe": "Panoramic, Historic",
         "chaosScore": 4, "costScore": 2, "mustDo": true,
         "lat": 13.7539, "lng": 100.5083,
-        "image": "https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Wat_Saket_(Golden_Mount).jpg&width=800",
-        "images": ["https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Wat_Saket_(Golden_Mount).jpg&width=800"]
+        "image": "assets/fotos/wat saket1.jpg",
+        "images": ["assets/fotos/wat saket1.jpg", "assets/fotos/wat saket 2.jpg"]
     },
     {
         "id": 18,
@@ -326,8 +326,8 @@
         "vibe": "Mystical, Local",
         "chaosScore": 6, "costScore": 1, "mustDo": false,
         "lat": 13.7555, "lng": 100.4895,
-        "image": "https://images.unsplash.com/photo-1504214208698-ea1916a2195a?auto=format&fit=crop&w=800&q=80",
-        "images": ["https://images.unsplash.com/photo-1504214208698-ea1916a2195a?auto=format&fit=crop&w=800&q=80","https://images.unsplash.com/photo-1528181304800-259b08848526?auto=format&fit=crop&w=800&q=80"]
+        "image": "assets/fotos/amulet market1.webp",
+        "images": ["assets/fotos/amulet market1.webp", "assets/fotos/amulet market2.jpg"]
     },
     {
         "id": 19,
@@ -341,8 +341,8 @@
         "vibe": "Quiet, Historic",
         "chaosScore": 2, "costScore": 2, "mustDo": true,
         "lat": 13.7375, "lng": 100.4930,
-        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dc/Kudichin_01.jpg/640px-Kudichin_01.jpg",
-        "images": ["https://upload.wikimedia.org/wikipedia/commons/thumb/d/dc/Kudichin_01.jpg/640px-Kudichin_01.jpg"]
+        "image": "assets/fotos/kudichin1.jpg",
+        "images": ["assets/fotos/kudichin1.jpg", "assets/fotos/kudi chin2.jpg"]
     },
     {
         "id": 20,
@@ -356,12 +356,12 @@
         "vibe": "Peaceful, Intricate",
         "chaosScore": 1, "costScore": 1, "mustDo": false,
         "lat": 13.7400, "lng": 100.4910,
-        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Kuan_An_Keng_Shrine_02.jpg/640px-Kuan_An_Keng_Shrine_02.jpg",
-        "images": ["https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Kuan_An_Keng_Shrine_02.jpg/640px-Kuan_An_Keng_Shrine_02.jpg"]
+        "image": "assets/fotos/Kuan An Keng Shrine.jpg",
+        "images": ["assets/fotos/Kuan An Keng Shrine.jpg"]
     },
     {
         "id": 15,
-        "name": "Steve CafÃ© & Cuisine",
+        "name": "Steve Café & Cuisine",
         "category": "Food",
         "tagline": "Riverside dining, no tourist traps.",
         "description": "Home-style Thai food hidden behind a temple. Great bridge view.",
@@ -371,8 +371,8 @@
         "vibe": "Breezy, Authentic",
         "chaosScore": 3, "costScore": 6, "mustDo": true,
         "lat": 13.7705, "lng": 100.5030,
-        "image": "https://images.unsplash.com/photo-1552566626-52f8b828add9?auto=format&fit=crop&w=800&q=80",
-        "images": ["https://images.unsplash.com/photo-1552566626-52f8b828add9?auto=format&fit=crop&w=800&q=80","https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=800&q=80"]
+        "image": "assets/fotos/steve1.jpg",
+        "images": ["assets/fotos/steve1.jpg", "assets/fotos/stece2.jpg"]
     },
     {
         "id": 16,
@@ -386,8 +386,8 @@
         "vibe": "Delicious, Clean",
         "chaosScore": 5, "costScore": 5, "mustDo": true,
         "lat": 13.7975, "lng": 100.5470,
-        "image": "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=800&q=80",
-        "images": ["https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=800&q=80","https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=800&q=80"]
+        "image": "assets/fotos/ortorkor1.jpg",
+        "images": ["assets/fotos/ortorkor1.jpg", "assets/fotos/ortorko2.jpg"]
     },
     {
         "id": 17,
@@ -401,8 +401,8 @@
         "vibe": "Chaotic, Fragrant, Local",
         "chaosScore": 8, "costScore": 2, "mustDo": true,
         "lat": 13.7415, "lng": 100.4960,
-        "image": "https://images.unsplash.com/photo-1490750967868-88aa4f44baee?auto=format&fit=crop&w=800&q=80",
-        "images": ["https://images.unsplash.com/photo-1490750967868-88aa4f44baee?auto=format&fit=crop&w=800&q=80","https://images.unsplash.com/photo-1487530811176-3780de880c2d?auto=format&fit=crop&w=800&q=80"]
+        "image": "assets/fotos/par khlong1.jpg",
+        "images": ["assets/fotos/par khlong1.jpg"]
     },
     {
         "id": 26,
@@ -417,7 +417,7 @@
         "chaosScore": 9, "costScore": 3, "mustDo": true,
         "lat": 13.7411, "lng": 100.5083,
         "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/64/Yaowarat_at_night_%2832455695783%29.jpg/960px-Yaowarat_at_night_%2832455695783%29.jpg",
-        "images": ["https://upload.wikimedia.org/wikipedia/commons/thumb/6/64/Yaowarat_at_night_%2832455695783%29.jpg/960px-Yaowarat_at_night_%2832455695783%29.jpg","https://images.unsplash.com/photo-1559592413-7cec4d0cae2b?auto=format&fit=crop&w=800&q=80"]
+        "images": ["https://upload.wikimedia.org/wikipedia/commons/thumb/6/64/Yaowarat_at_night_%2832455695783%29.jpg/960px-Yaowarat_at_night_%2832455695783%29.jpg"]
     },
     {
         "id": 24,
@@ -425,14 +425,14 @@
         "category": "Food",
         "tagline": "Vintage treasure hunt meets Thai food paradise.",
         "description": "Massive open-air night market famous for vintage collectibles, retro furniture, and VW van bars. The food section offers everything from gourmet burgers to Thai street food classics.",
-        "insiderTip": "Take a taxi or Grab â€” it's far from center. Go Friday/Saturday night for the full experience. The vintage car area is Instagram gold.",
+        "insiderTip": "Take a taxi or Grab — it's far from center. Go Friday/Saturday night for the full experience. The vintage car area is Instagram gold.",
         "location": "Srinakarin Road (behind Seacon Square)",
         "mapLink": "https://www.google.com/maps/search/?api=1&query=Train+Night+Market+Srinakarin",
         "vibe": "Retro, Buzzing",
         "chaosScore": 7, "costScore": 3, "mustDo": false,
         "lat": 13.6795, "lng": 100.6470,
-        "image": "https://images.unsplash.com/photo-1567337710282-00832b415979?auto=format&fit=crop&w=800&q=80",
-        "images": ["https://images.unsplash.com/photo-1567337710282-00832b415979?auto=format&fit=crop&w=800&q=80","https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=800&q=80"]
+        "image": "assets/fotos/rotfai1.jpg",
+        "images": ["assets/fotos/rotfai1.jpg"]
     },
     {
         "id": 30,
@@ -440,14 +440,44 @@
         "category": "Food",
         "tagline": "Bangkok's trendiest night market.",
         "description": "The successor to the legendary Ratchada night market. Sprawling open-air market with hundreds of food vendors, craft cocktails, live music, and vintage shops. Known for the famous bin-crab omelette.",
-        "insiderTip": "The 'Fire Crab' omelette stalls have long queues â€” join early. Craft beer tents in the back are excellent. Phra Ram 9 MRT.",
+        "insiderTip": "The 'Fire Crab' omelette stalls have long queues — join early. Craft beer tents in the back are excellent. Phra Ram 9 MRT.",
         "location": "Phra Ram 9",
         "mapLink": "https://www.google.com/maps/search/?api=1&query=Jodd+Fairs+Dan+Neramit",
         "vibe": "Trendy, Festive",
         "chaosScore": 8, "costScore": 3, "mustDo": true,
         "lat": 13.7618, "lng": 100.5595,
-        "image": "https://images.unsplash.com/photo-1504940892017-d23b9053d5d4?auto=format&fit=crop&w=800&q=80",
-        "images": ["https://images.unsplash.com/photo-1504940892017-d23b9053d5d4?auto=format&fit=crop&w=800&q=80","https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=800&q=80"]
+        "image": "assets/fotos/jodd fairs.jpg",
+        "images": ["assets/fotos/jodd fairs.jpg"]
+    },
+    {
+        "id": 32,
+        "name": "Three Little Birds Café",
+        "category": "Food",
+        "tagline": "Trim's café — great coffee & the best Kra Pao in Thailand.",
+        "description": "Small neighbourhood café run by my friend Trim, near Channel 7. Excellent coffee. But the real reason to come is his mother's cooking right at the door: the best Pad Kra Pao I've ever had in this country, for almost no money.",
+        "insiderTip": "Order Kra Pao Boram with fried egg (Khai Dao). Go say hi to Trim. If you're heading to the Muay Thai, this is the perfect stop before or after.",
+        "location": "Mo Chit / Chatuchak",
+        "mapLink": "https://www.google.com/maps/search/?api=1&query=Three+Little+Birds+Cafe+Bangkok+Chatuchak",
+        "vibe": "Friendly, Local",
+        "chaosScore": 2, "costScore": 2, "mustDo": true,
+        "lat": 13.8020, "lng": 100.5530,
+        "image": "assets/fotos/threelittlebirds.jpg",
+        "images": ["assets/fotos/threelittlebirds.jpg"]
+    },
+    {
+        "id": 31,
+        "name": "Muay Thai — Channel 7 Stadium",
+        "category": "Classics",
+        "tagline": "Real, televised Muay Thai fights every Sunday.",
+        "description": "Live Muay Thai at the Channel 7 HQ. High-level, authentic, intense 5-round fights broadcast on national TV. Free standing or ~300 THB for seated (often ringside). This is the real thing, not a tourist show.",
+        "insiderTip": "Arrive by 1:00–1:30 PM even though fights start at ~2:30 PM — it fills up fast. Long pants and closed shoes required (no shorts or sandals). Combine with Chatuchak Market and Three Little Birds Café nearby.",
+        "location": "Mo Chit / Chatuchak (behind Channel 7 HQ)",
+        "mapLink": "https://www.google.com/maps/search/?api=1&query=Channel+7+Boxing+Stadium+Bangkok",
+        "vibe": "Intense, Authentic",
+        "chaosScore": 8, "costScore": 1, "mustDo": true,
+        "lat": 13.8005, "lng": 100.5535,
+        "image": "assets/fotos/muaythai1.jpg",
+        "images": ["assets/fotos/muaythai1.jpg"]
     }
 ]
 ;
