@@ -98,7 +98,12 @@ h1, h2, h3 {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 64px;
+    height: 56px;
+    gap: 0.5rem;
+}
+
+@media (min-width: 768px) {
+    .navbar-inner { height: 64px; gap: 1rem; }
 }
 
 .navbar-brand {
@@ -132,14 +137,94 @@ h1, h2, h3 {
     .navbar-brand .subtitle { display: inline; }
 }
 
+/* ===== NAVBAR SECTION LINKS ===== */
+.navbar-links {
+    display: flex;
+    align-items: center;
+    gap: 0.15rem;
+}
+
+@media (min-width: 768px) {
+    .navbar-links { gap: 0.25rem; }
+}
+
+.navbar-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.35rem;
+    padding: 0.4rem;
+    border: none;
+    border-radius: var(--radius-md);
+    background: transparent;
+    color: rgba(255,255,255,0.55);
+    font-family: 'Inter', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+    line-height: 1;
+    position: relative;
+}
+
+@media (min-width: 768px) {
+    .navbar-link {
+        padding: 0.4rem 0.65rem;
+        font-size: 0.78rem;
+        border-radius: 100px;
+    }
+}
+
+.navbar-link:hover {
+    color: #fff;
+    background: rgba(255,255,255,0.1);
+}
+
+.navbar-link:active {
+    transform: scale(0.95);
+}
+
+.navbar-link-icon {
+    font-size: 1rem;
+    line-height: 1;
+}
+
+@media (min-width: 768px) {
+    .navbar-link-icon { font-size: 0.85rem; }
+}
+
+.navbar-link-text {
+    display: none;
+}
+
+@media (min-width: 768px) {
+    .navbar-link-text {
+        display: inline;
+        font-size: 0.75rem;
+        letter-spacing: 0.02em;
+    }
+}
+
+/* Hide Near Me text and Saved text on mobile */
+.nav-btn-text,
+.saved-badge-text {
+    display: none;
+}
+
+@media (min-width: 640px) {
+    .nav-btn-text,
+    .saved-badge-text { display: inline; }
+}
+
 .saved-badge {
     display: flex;
     align-items: center;
-    gap: 0.5rem;
+    gap: 0.35rem;
     font-size: 0.8rem;
     font-weight: 500;
     color: rgba(255,255,255,0.7);
-    cursor: default;
+    cursor: pointer;
 }
 
 .saved-count {

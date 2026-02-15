@@ -25,13 +25,21 @@
                 <span>PABLO'S <span class="accent">BANGKOK</span></span>
                 <span class="subtitle">Insider Guide</span>
             </div>
+            <div class="navbar-links">
+                <button class="navbar-link" onclick="scrollToSection('map-section')" title="Map"><span class="navbar-link-icon">🗺️</span><span class="navbar-link-text">Map</span></button>
+                <button class="navbar-link" onclick="scrollToSection('explorer')" title="Directory"><span class="navbar-link-icon">📋</span><span class="navbar-link-text">Directory</span></button>
+                <button class="navbar-link" onclick="scrollToSection('itinerary-section')" title="Itinerary"><span class="navbar-link-icon">🧳</span><span class="navbar-link-text">Itinerary</span></button>
+                <button class="navbar-link" onclick="scrollToSection('tips-section')" title="Tips"><span class="navbar-link-icon">💡</span><span class="navbar-link-text">Tips</span></button>
+                <button class="navbar-link" onclick="scrollToSection('vibe-check')" title="Data"><span class="navbar-link-icon">📊</span><span class="navbar-link-text">Data</span></button>
+                <button class="navbar-link" onclick="scrollToSection('food-guide')" title="Food"><span class="navbar-link-icon">🍜</span><span class="navbar-link-text">Food</span></button>
+            </div>
             <div class="navbar-actions">
                 <button class="nav-btn" id="locate-btn" onclick="locateMe()" title="Find spots near me">
-                    📍 Near Me
+                    📍 <span class="nav-btn-text">Near Me</span>
                 </button>
                 <div class="saved-badge" onclick="scrollToSection('itinerary-section')">
                     <span class="saved-count" id="saved-count">0</span>
-                    Saved
+                    <span class="saved-badge-text">Saved</span>
                 </div>
             </div>
         </div>
@@ -52,22 +60,10 @@
             </p>
             <div class="hero-actions">
                 <button class="btn btn-primary" onclick="scrollToSection('map-section')">
-                    🗺️ Map
+                    🗺️ Explore the Map
                 </button>
                 <button class="btn btn-ghost" onclick="scrollToSection('explorer')">
-                    📋 Directory
-                </button>
-                <button class="btn btn-ghost" onclick="scrollToSection('itinerary-section')">
-                    🧳 Itinerary
-                </button>
-                <button class="btn btn-ghost" onclick="scrollToSection('tips-section')">
-                    💡 Tips
-                </button>
-                <button class="btn btn-ghost" onclick="scrollToSection('vibe-check')">
-                    📊 Data
-                </button>
-                <button class="btn btn-ghost" onclick="scrollToSection('food-guide')">
-                    🍜 Food
+                    📋 Browse the List
                 </button>
             </div>
         </div>
