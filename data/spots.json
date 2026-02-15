@@ -160,7 +160,7 @@
         "mapLink": "https://maps.app.goo.gl/p3nQDU23icujTudx5",
         "vibe": "Green, Active",
         "chaosScore": 2, "costScore": 2, "mustDo": true,
-        "lat": 13.6580, "lng": 100.5750,
+        "lat": 13.7025, "lng": 100.5727,
         "image": "assets/fotos/bang krachao1.avif",
         "images": ["assets/fotos/bang krachao1.avif", "assets/fotos/bang krachao2.jpeg"]
     },

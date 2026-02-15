@@ -52,16 +52,22 @@
             </p>
             <div class="hero-actions">
                 <button class="btn btn-primary" onclick="scrollToSection('map-section')">
-                    🗺️ Explore Map
+                    🗺️ Map
                 </button>
                 <button class="btn btn-ghost" onclick="scrollToSection('explorer')">
-                    Browse the List
+                    📋 Directory
+                </button>
+                <button class="btn btn-ghost" onclick="scrollToSection('itinerary-section')">
+                    🧳 Itinerary
                 </button>
                 <button class="btn btn-ghost" onclick="scrollToSection('tips-section')">
                     💡 Tips
                 </button>
+                <button class="btn btn-ghost" onclick="scrollToSection('vibe-check')">
+                    📊 Data
+                </button>
                 <button class="btn btn-ghost" onclick="scrollToSection('food-guide')">
-                    🍜 Food Guide
+                    🍜 Food
                 </button>
             </div>
         </div>
@@ -229,293 +235,6 @@
         </div>
     </section>
 
-    <!-- Section: Food Guide -->
-    <section id="food-guide" class="section food-guide-section">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-label">Culinary</span>
-                <h2 class="section-title">Thai Food Guide</h2>
-                <p class="section-subtitle">Regional dishes, spice levels, and where to try them in Bangkok.</p>
-            </div>
-
-            <div class="food-grid">
-
-                <!-- Central -->
-                <div class="food-card">
-                    <div class="food-card-img">
-                        <img src="https://pixabay.com/get/g27d4f50486cfc9c106936f1e54ea592fe6e9535d8b4925aa48f4dafbca30694da56f0b7058273d048f53e04ad62a9fa18c4557fbb44472ed408abf5b91c7515b_1280.jpg" alt="Pad Thai" loading="lazy">
-                        <span class="food-region-tag">Central Thailand</span>
-                    </div>
-                    <div class="food-card-body">
-                        <h3 class="food-card-title">Central Thai Cuisine</h3>
-                        <p class="food-card-desc">The most internationally known. Balances sweet, sour, salty, and spicy. Bangkok is the heartland.</p>
-                        <div class="food-dishes">
-                            <div class="food-dish">
-                                <img class="food-dish-img" src="https://pixabay.com/get/g27d4f50486cfc9c106936f1e54ea592fe6e9535d8b4925aa48f4dafbca30694da56f0b7058273d048f53e04ad62a9fa18c4557fbb44472ed408abf5b91c7515b_1280.jpg" alt="Pad Thai" loading="lazy">
-                                <div class="food-dish-header">
-                                    <strong>Pad Thai</strong>
-                                    <span class="spice-level spice-1">🌶️</span>
-                                </div>
-                                <p>Stir-fried rice noodles with shrimp, tofu, egg, peanuts, and lime. The classic.</p>
-                                <span class="food-where">📍 Thip Samai — Maha Chai Rd (the original, queue-worthy)</span>
-                            </div>
-                            <div class="food-dish">
-                                <img class="food-dish-img" src="https://pixabay.com/get/g2355a3cb45d96dfd07cff948a4512603ed71c8e834b5fc2f054f80a8733dd5259b15739740ac16c281034fe91c8e9b09b49be1a05dd2a4ffd1637cbb3e61b3dc_1280.jpg" alt="Pad Kra Pao" loading="lazy">
-                                <div class="food-dish-header">
-                                    <strong>Pad Kra Pao + Khai Dao</strong>
-                                    <span class="spice-level spice-3">🌶️🌶️🌶️</span>
-                                </div>
-                                <p>Stir-fried minced meat with holy basil, chili, garlic, served over rice with a fried egg. Thailand's everyday lunch.</p>
-                                <span class="food-where">📍 Three Little Birds Café — near Channel 7, Mo Chit (ask for Kra Pao Boram + Khai Dao)</span>
-                            </div>
-                            <div class="food-dish">
-                                <img class="food-dish-img" src="https://pixabay.com/get/g6afe1b92933a6f1b71d0a740ffc8e020f80b763aef20030900a48a06a10eb726da6a2f4dbc7a7c9c44f3eea33b12e85c855f7312066dcd381d10d0578dd1b1cc_1280.jpg" alt="Tom Yum Kung" loading="lazy">
-                                <div class="food-dish-header">
-                                    <strong>Tom Yum Kung</strong>
-                                    <span class="spice-level spice-3">🌶️🌶️🌶️</span>
-                                </div>
-                                <p>Hot and sour shrimp soup with lemongrass, galangal, kaffir lime, and mushrooms. Intense, aromatic broth.</p>
-                                <span class="food-where">📍 P'Aor — Phetchaburi Soi 5 (the creamy "nam khon" version)</span>
-                            </div>
-                            <div class="food-dish">
-                                <img class="food-dish-img" src="https://pixabay.com/get/g76adeb7a09b39ce9abfffdc3e644125a8f2317584373064c82a6e9cec51ad31a097937564b45e6fbbafacf2376034e456a0c95d0fd73623837be259ee4ebcef7_1280.jpg" alt="Massaman Curry" loading="lazy">
-                                <div class="food-dish-header">
-                                    <strong>Massaman Curry</strong>
-                                    <span class="spice-level spice-1">🌶️</span>
-                                </div>
-                                <p>Rich, mild curry with potatoes, peanuts, and slow-cooked meat. Persian-influenced, sweet and warm.</p>
-                                <span class="food-where">📍 Krua Apsorn — Samsen Rd (run by Royal Palace chefs)</span>
-                            </div>
-                            <div class="food-dish">
-                                <img class="food-dish-img" src="https://pixabay.com/get/ga704341822e8efb3e265292a7522a20c0cd75b909dfd6a1efc3aa82cc6b782d00e84c1fe9adc7611498e70dd1e5314d20e917e009f1dd64df8310ab647d4f20f_1280.jpg" alt="Green Curry" loading="lazy">
-                                <div class="food-dish-header">
-                                    <strong>Keng Kiaow Wan (Green Curry)</strong>
-                                    <span class="spice-level spice-3">🌶️🌶️🌶️</span>
-                                </div>
-                                <p>Coconut milk curry with green chili paste, Thai eggplant, bamboo shoots, and sweet basil. Usually with chicken. The quintessential Thai curry.</p>
-                                <span class="food-where">📍 Krua Apsorn — Samsen Rd / Any street stall with "ข้าวแกง"</span>
-                            </div>
-                            <div class="food-dish">
-                                <img class="food-dish-img" src="https://pixabay.com/get/g823c646de802d9c1287e7d1eed74b72f958bebdfb0d5c5fbe0617ff77fd7bea5f92fef57a59dba4fafc32ef3599ac4eac0eebb8366f8ec52d50acb8c2d0b319b_1280.jpg" alt="Tom Kha Kai" loading="lazy">
-                                <div class="food-dish-header">
-                                    <strong>Tom Kha Kai</strong>
-                                    <span class="spice-level spice-1">🌶️</span>
-                                </div>
-                                <p>Coconut milk soup with galangal, lemongrass, kaffir lime leaves, and chicken. Creamy, tangy, and aromatic. The gentler cousin of Tom Yum.</p>
-                                <span class="food-where">📍 Any "ร้านอาหารตามสั่ง" (made-to-order restaurant)</span>
-                            </div>
-                            <div class="food-dish">
-                                <img class="food-dish-img" src="https://pixabay.com/get/gaaec52a6cba4bff35ac8fb42ec9a4591823466cc0e1b1a8a9002edc602cc741df94069e6ef4dea7effdc2e31b8bb76c5afe91fa7afbd72eda39b23ec064dba51_1280.jpg" alt="Pak Bung Fai Deng" loading="lazy">
-                                <div class="food-dish-header">
-                                    <strong>Pak Bung Fai Deng</strong>
-                                    <span class="spice-level spice-2">🌶️🌶️</span>
-                                </div>
-                                <p>Stir-fried morning glory with garlic, chili, and soybean paste. The classic side dish — order it with everything. The wok flame is half the show.</p>
-                                <span class="food-where">📍 Any street stall or restaurant — the universal Thai side dish</span>
-                            </div>
-                            <div class="food-dish">
-                                <img class="food-dish-img" src="https://pixabay.com/get/g16980363c72c18e1d11f5e60e0a4d7bc374a52040a61c7b3111a1d07290fa79c3fc9ffcf0594d6acaedf6fdd7b4d4543e90c2032f4dd6787acd13167d3ff69ff_1280.jpg" alt="Pad Kee Mao" loading="lazy">
-                                <div class="food-dish-header">
-                                    <strong>Pad Kee Mao (Drunken Noodles)</strong>
-                                    <span class="spice-level spice-3">🌶️🌶️🌶️</span>
-                                </div>
-                                <p>Wide rice noodles stir-fried with chili, garlic, holy basil, and your choice of protein. Called "drunkard's fry" because it's supposedly what you crave after a night out.</p>
-                                <span class="food-where">📍 Any late-night street stall — the after-party dish</span>
-                            </div>
-                            <div class="food-dish">
-                                <img class="food-dish-img" src="https://pixabay.com/get/gbe8fc6ad9351e0927ae0cfc5b8bfb5ea66a8edd7b9ba166f00686796adb5a234e528e967cd6709ac149a9188700411c4afb9c563845610242d2b74c3beb62616_1280.jpg" alt="Pad See Ew" loading="lazy">
-                                <div class="food-dish-header">
-                                    <strong>Pad See Ew</strong>
-                                    <span class="spice-level spice-0">Mild</span>
-                                </div>
-                                <p>Wide flat noodles stir-fried with dark soy sauce, Chinese broccoli, egg, and meat. Sweet-savory, charred perfection. Zero spice, pure comfort.</p>
-                                <span class="food-where">📍 Street stalls everywhere — the safe bet everyone loves</span>
-                            </div>
-                            <div class="food-dish">
-                                <img class="food-dish-img" src="https://pixabay.com/get/gc3a4e30ee4eeede59494672dd43d0cce8f44cd37f74992afb7557271c4d338777f4ff2c165f3a7bcd6e7c3322403110d2c67216605d9ab8f29a63beff0ba7c8e_1280.jpg" alt="Pad Kra Pao Muu Crob" loading="lazy">
-                                <div class="food-dish-header">
-                                    <strong>Pad Kra Pao Muu Crob</strong>
-                                    <span class="spice-level spice-3">🌶️🌶️🌶️</span>
-                                </div>
-                                <p>The crispy pork belly version of Pad Kra Pao. Crunchy, spicy, aromatic with holy basil. The ultimate upgrade on the everyday classic.</p>
-                                <span class="food-where">📍 Three Little Birds Café — Mo Chit / Or any street stall that offers "หมูกรอบ"</span>
-                            </div>
-                            <div class="food-dish">
-                                <img class="food-dish-img" src="https://pixabay.com/get/gca7827f5890276d7aae938b193b3ef5d3645058a586d1400e341409912e0968323c2b806f33d34b09c0fb557eb4a8c410932167c8c966fd945382bfc8fd749ec_1280.jpg" alt="Khao Pad" loading="lazy">
-                                <div class="food-dish-header">
-                                    <strong>Khao Pad (Thai Fried Rice)</strong>
-                                    <span class="spice-level spice-1">🌶️</span>
-                                </div>
-                                <p>Simple wok-fried rice with egg, onion, and your choice of protein. Served with lime, cucumber, and fish sauce. The reliable staple when you can't decide.</p>
-                                <span class="food-where">📍 Everywhere — the universal fallback, always good</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Isaan -->
-                <div class="food-card">
-                    <div class="food-card-img">
-                        <img src="https://pixabay.com/get/g7619a772e4a5ad393868e09eb94cac9e91ac8c330b0cc8c74ffcdaa59d2b4b6f3dfe5769eed6d3a09a9dd14b8fbe138c0db837b75c40c91914a12cf3405b87d9_1280.jpg" alt="Som Tam" loading="lazy">
-                        <span class="food-region-tag">Isaan (Northeast)</span>
-                    </div>
-                    <div class="food-card-body">
-                        <h3 class="food-card-title">Isaan Cuisine</h3>
-                        <p class="food-card-desc">Bold, raw, funky flavors from the northeast. Heavy on grilled meats, sticky rice, and fermented fish. Not for the faint-hearted.</p>
-                        <div class="food-dishes">
-                            <div class="food-dish">
-                                <img class="food-dish-img" src="https://pixabay.com/get/g7619a772e4a5ad393868e09eb94cac9e91ac8c330b0cc8c74ffcdaa59d2b4b6f3dfe5769eed6d3a09a9dd14b8fbe138c0db837b75c40c91914a12cf3405b87d9_1280.jpg" alt="Som Tam" loading="lazy">
-                                <div class="food-dish-header">
-                                    <strong>Som Tam (Papaya Salad)</strong>
-                                    <span class="spice-level spice-4">🌶️🌶️🌶️🌶️</span>
-                                </div>
-                                <p>Shredded green papaya pounded with chili, lime, fish sauce, peanuts, dried shrimp, and tomato. Ask for your spice level.</p>
-                                <span class="food-where">📍 Som Tam Nua — Siam Square Soi 5 (trendy but legit)</span>
-                            </div>
-                            <div class="food-dish">
-                                <img class="food-dish-img" src="https://pixabay.com/get/ge670b9b643d995ff548a5da06e5ac946caad85767c8d6fd031194ee61b02ca5cd9b36af74fd206cc21a36b54221799c35f607eb9872bd9eba9b4e1acae76923b_1280.jpg" alt="Larb Moo" loading="lazy">
-                                <div class="food-dish-header">
-                                    <strong>Larb Moo (Minced Pork Salad)</strong>
-                                    <span class="spice-level spice-3">🌶️🌶️🌶️</span>
-                                </div>
-                                <p>Minced pork tossed with lime, fish sauce, chili flakes, mint, and toasted rice powder. Explosive flavor.</p>
-                                <span class="food-where">📍 Sabaijai — Ekamai Soi 10 / Baan Somtum — chain with branches all over BKK (legit Isaan family cooking)</span>
-                            </div>
-                            <div class="food-dish">
-                                <img class="food-dish-img" src="https://pixabay.com/get/gfc2796d851a4cc1452e25d08fa6e793941a5dd75ef2a88baf539e13f65224ad0236fe60ec48acfc479c82bb82ff2941de031a98ffa96c103e900a47f1381efcb_1280.jpg" alt="Gai Yang" loading="lazy">
-                                <div class="food-dish-header">
-                                    <strong>Gai Yang (Grilled Chicken)</strong>
-                                    <span class="spice-level spice-1">🌶️</span>
-                                </div>
-                                <p>Marinated half-chicken grilled over charcoal. Eat with sticky rice and dipping sauce. Simple, perfect.</p>
-                                <span class="food-where">📍 Polo Fried Chicken — Soi Polo, Lumphini (legendary since 1960)</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Northern -->
-                <div class="food-card">
-                    <div class="food-card-img">
-                        <img src="https://pixabay.com/get/gb8dd892e99a3079ac93b8e466d0eaa7362c9f9d910135794ae5d0f9eb0f9a46d36a3b614d6c209ef65c96cdeb28086dd0ea8d376af7dc42db2f5142aeb670936_1280.jpg" alt="Khao Soi" loading="lazy">
-                        <span class="food-region-tag">Northern Thailand</span>
-                    </div>
-                    <div class="food-card-body">
-                        <h3 class="food-card-title">Northern Cuisine</h3>
-                        <p class="food-card-desc">Mild, earthy, rustic. Influenced by Burma and Laos. Less spicy, more herbal. Comfort food.</p>
-                        <div class="food-dishes">
-                            <div class="food-dish">
-                                <img class="food-dish-img" src="https://pixabay.com/get/gb8dd892e99a3079ac93b8e466d0eaa7362c9f9d910135794ae5d0f9eb0f9a46d36a3b614d6c209ef65c96cdeb28086dd0ea8d376af7dc42db2f5142aeb670936_1280.jpg" alt="Khao Soi" loading="lazy">
-                                <div class="food-dish-header">
-                                    <strong>Khao Soi</strong>
-                                    <span class="spice-level spice-2">🌶️🌶️</span>
-                                </div>
-                                <p>Egg noodle curry soup topped with crispy noodles, pickled mustard greens, and shallots. Coconut-rich and fragrant.</p>
-                                <span class="food-where">📍 Ongtong Khao Soi — Ekamai (one of the best in Bangkok)</span>
-                            </div>
-                            <div class="food-dish">
-                                <img class="food-dish-img" src="https://pixabay.com/get/g7ad90582bfd029242ac4a24dae617bb66cc715509d49add3e9bf77bee7e88f548d38e1ca92a729788a7d56d97e144a5fca8253c9a4d3729ee3ec5a9ece2a0ea3_1280.jpg" alt="Sai Oua" loading="lazy">
-                                <div class="food-dish-header">
-                                    <strong>Sai Oua (Northern Sausage)</strong>
-                                    <span class="spice-level spice-2">🌶️🌶️</span>
-                                </div>
-                                <p>Herby pork sausage with lemongrass, kaffir lime, and chili paste. Grilled and eaten with sticky rice.</p>
-                                <span class="food-where">📍 Huen Phen — if you visit Chiang Mai; hard to find authentic in BKK</span>
-                            </div>
-                            <div class="food-dish">
-                                <img class="food-dish-img" src="https://pixabay.com/get/g74be5d1d5ce19f6e44af90b82fa8eb03aa7f5f9ca76fbff30a52332d46210052cab15fd63763eef826025c8f5adbcb1a5b7dcaa840f6befdbcf5b212c9ca313b_1280.jpg" alt="Kanom Jeen" loading="lazy">
-                                <div class="food-dish-header">
-                                    <strong>Kanom Jeen Nam Ngiao</strong>
-                                    <span class="spice-level spice-2">🌶️🌶️</span>
-                                </div>
-                                <p>Rice noodles in a rich, tangy tomato-pork broth with blood cubes and dried chili. Deep and complex.</p>
-                                <span class="food-where">📍 Look for it at Chatuchak Weekend Market food stalls</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Southern -->
-                <div class="food-card">
-                    <div class="food-card-img">
-                        <img src="https://pixabay.com/get/g55236969e436459c5658bfd8b3ce0e958e5dc1b7cda72e1d8441c0cd4dd35bf33099557dbc59b8498c5e0b78cc17b6615f4028c7acc0354c14e8a2e4c6ca4164_1280.jpg" alt="Southern Thai Curry" loading="lazy">
-                        <span class="food-region-tag">Southern Thailand</span>
-                    </div>
-                    <div class="food-card-body">
-                        <h3 class="food-card-title">Southern Cuisine</h3>
-                        <p class="food-card-desc">The spiciest region. Turmeric-heavy, seafood-driven, unapologetically intense. Malaysian and Indian influences.</p>
-                        <div class="food-dishes">
-                            <div class="food-dish">
-                                <img class="food-dish-img" src="https://pixabay.com/get/g55236969e436459c5658bfd8b3ce0e958e5dc1b7cda72e1d8441c0cd4dd35bf33099557dbc59b8498c5e0b78cc17b6615f4028c7acc0354c14e8a2e4c6ca4164_1280.jpg" alt="Gaeng Tai Pla" loading="lazy">
-                                <div class="food-dish-header">
-                                    <strong>Gaeng Tai Pla</strong>
-                                    <span class="spice-level spice-5">🌶️🌶️🌶️🌶️🌶️</span>
-                                </div>
-                                <p>Fermented fish kidney curry. Extremely pungent and fiery. The benchmark of southern heat. Not for beginners.</p>
-                                <span class="food-where">📍 Khua Kling Pak Sod — Thonglor/Silom (authentic southern in BKK)</span>
-                            </div>
-                            <div class="food-dish">
-                                <img class="food-dish-img" src="https://pixabay.com/get/g06b321603c8a97271a1431f94b68facc6d032a28029ebf48da8c9bfc518fe8fac4aab38a4be7ab3ac7e7bcaf0a7e061a3a013844489d095eca7d2e54d08733f4_1280.jpg" alt="Khua Kling" loading="lazy">
-                                <div class="food-dish-header">
-                                    <strong>Khua Kling</strong>
-                                    <span class="spice-level spice-4">🌶️🌶️🌶️🌶️</span>
-                                </div>
-                                <p>Dry-fried minced meat with an aggressive curry paste — turmeric, lemongrass, and a wall of chili. No coconut milk.</p>
-                                <span class="food-where">📍 Khua Kling Pak Sod — Thonglor/Silom</span>
-                            </div>
-                            <div class="food-dish">
-                                <img class="food-dish-img" src="https://pixabay.com/get/ga7b0c9ba4a00a801815df302417a931799fa1349693f3568998312445092ffa2293980cfbe8d892a93acd94c0b70565c2519da0ee37973e6f3014baf5ded43f4_1280.jpg" alt="Roti" loading="lazy">
-                                <div class="food-dish-header">
-                                    <strong>Roti & Mataba</strong>
-                                    <span class="spice-level spice-0">Mild</span>
-                                </div>
-                                <p>Flaky pan-fried flatbread (roti) with condensed milk or curry. Mataba is the stuffed savory version. Muslim-Thai street snack.</p>
-                                <span class="food-where">📍 Yaowarat (Chinatown) night stalls or any Muslim quarter</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Desserts -->
-                <div class="food-card">
-                    <div class="food-card-img">
-                        <img src="https://pixabay.com/get/gd0fc052f3fc0edb92b0cc54512a9dfb7645a980b1dda7499da6d0566d171d1fcd860caa9bf825b1400da3063ba0d6194ecba0b6362e7a72fb4b4106a115d1c6e_1280.jpg" alt="Thai Desserts" loading="lazy">
-                        <span class="food-region-tag">🍮 Desserts</span>
-                    </div>
-                    <div class="food-card-body">
-                        <h3 class="food-card-title">Thai Desserts (Khanom)</h3>
-                        <p class="food-card-desc">Coconut, pandan, palm sugar, sticky rice — Thai sweets are an art form. Most are found at markets and street stalls.</p>
-                        <div class="food-dishes">
-                            <div class="food-dish">
-                                <img class="food-dish-img" src="https://pixabay.com/get/gd0fc052f3fc0edb92b0cc54512a9dfb7645a980b1dda7499da6d0566d171d1fcd860caa9bf825b1400da3063ba0d6194ecba0b6362e7a72fb4b4106a115d1c6e_1280.jpg" alt="Kanom Tuay" loading="lazy">
-                                <div class="food-dish-header">
-                                    <strong>Kanom Tuay</strong>
-                                    <span class="spice-level spice-0">Mild</span>
-                                </div>
-                                <p>Two-layered coconut pudding in tiny ceramic cups. Bottom is sweet coconut cream with pandan, top is salted coconut. Silky and addictive.</p>
-                                <span class="food-where">📍 Or Tor Kor Market / Chatuchak Weekend Market stalls</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-
-            <!-- Spice Scale Legend -->
-            <div class="spice-legend">
-                <h4 class="spice-legend-title">Spice Scale</h4>
-                <div class="spice-legend-items">
-                    <span class="spice-legend-item"><span class="spice-level spice-0">Mild</span> No heat</span>
-                    <span class="spice-legend-item"><span class="spice-level spice-1">🌶️</span> Gentle</span>
-                    <span class="spice-legend-item"><span class="spice-level spice-2">🌶️🌶️</span> Warm</span>
-                    <span class="spice-legend-item"><span class="spice-level spice-3">🌶️🌶️🌶️</span> Hot</span>
-                    <span class="spice-legend-item"><span class="spice-level spice-4">🌶️🌶️🌶️🌶️</span> Very hot</span>
-                    <span class="spice-legend-item"><span class="spice-level spice-5">🌶️🌶️🌶️🌶️🌶️</span> Painful</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- Section: Vibe & Budget -->
     <section id="vibe-check" class="section charts-section">
         <div class="container">
@@ -536,6 +255,301 @@
                     <div class="chart-container chart-container-small">
                         <canvas id="categoryChart"></canvas>
                     </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section: Food Guide -->
+    <section id="food-guide" class="section food-guide-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Culinary</span>
+                <h2 class="section-title">Thai Food Guide</h2>
+                <p class="section-subtitle">Regional dishes, spice levels, and where to try them in Bangkok.</p>
+            </div>
+
+            <!-- Region: Central Thailand -->
+            <div class="food-region-header">
+                <h3 class="food-region-title">🇹🇭 Central Thai Cuisine</h3>
+                <p class="food-region-desc">The most internationally known. Balances sweet, sour, salty, and spicy. Bangkok is the heartland.</p>
+            </div>
+            <div class="food-dishes-grid">
+                <div class="dish-card">
+                    <div class="dish-card-img">
+                        <img src="https://pixabay.com/get/g27d4f50486cfc9c106936f1e54ea592fe6e9535d8b4925aa48f4dafbca30694da56f0b7058273d048f53e04ad62a9fa18c4557fbb44472ed408abf5b91c7515b_1280.jpg" alt="Pad Thai" loading="lazy">
+                        <span class="dish-spice spice-1">🌶️</span>
+                    </div>
+                    <div class="dish-card-body">
+                        <h4 class="dish-name">Pad Thai</h4>
+                        <p class="dish-desc">Stir-fried rice noodles with shrimp, tofu, egg, peanuts, and lime. The classic.</p>
+                        <span class="dish-where">📍 Thip Samai — Maha Chai Rd</span>
+                    </div>
+                </div>
+                <div class="dish-card">
+                    <div class="dish-card-img">
+                        <img src="https://pixabay.com/get/g2355a3cb45d96dfd07cff948a4512603ed71c8e834b5fc2f054f80a8733dd5259b15739740ac16c281034fe91c8e9b09b49be1a05dd2a4ffd1637cbb3e61b3dc_1280.jpg" alt="Pad Kra Pao" loading="lazy">
+                        <span class="dish-spice spice-3">🌶️🌶️🌶️</span>
+                    </div>
+                    <div class="dish-card-body">
+                        <h4 class="dish-name">Pad Kra Pao + Khai Dao</h4>
+                        <p class="dish-desc">Stir-fried minced meat with holy basil, chili, garlic, served over rice with a fried egg.</p>
+                        <span class="dish-where">📍 Three Little Birds — Mo Chit</span>
+                    </div>
+                </div>
+                <div class="dish-card">
+                    <div class="dish-card-img">
+                        <img src="https://pixabay.com/get/g6afe1b92933a6f1b71d0a740ffc8e020f80b763aef20030900a48a06a10eb726da6a2f4dbc7a7c9c44f3eea33b12e85c855f7312066dcd381d10d0578dd1b1cc_1280.jpg" alt="Tom Yum Kung" loading="lazy">
+                        <span class="dish-spice spice-3">🌶️🌶️🌶️</span>
+                    </div>
+                    <div class="dish-card-body">
+                        <h4 class="dish-name">Tom Yum Kung</h4>
+                        <p class="dish-desc">Hot and sour shrimp soup with lemongrass, galangal, kaffir lime, and mushrooms.</p>
+                        <span class="dish-where">📍 P'Aor — Phetchaburi Soi 5</span>
+                    </div>
+                </div>
+                <div class="dish-card">
+                    <div class="dish-card-img">
+                        <img src="https://pixabay.com/get/g76adeb7a09b39ce9abfffdc3e644125a8f2317584373064c82a6e9cec51ad31a097937564b45e6fbbafacf2376034e456a0c95d0fd73623837be259ee4ebcef7_1280.jpg" alt="Massaman Curry" loading="lazy">
+                        <span class="dish-spice spice-1">🌶️</span>
+                    </div>
+                    <div class="dish-card-body">
+                        <h4 class="dish-name">Massaman Curry</h4>
+                        <p class="dish-desc">Rich, mild curry with potatoes, peanuts, and slow-cooked meat. Persian-influenced.</p>
+                        <span class="dish-where">📍 Krua Apsorn — Samsen Rd</span>
+                    </div>
+                </div>
+                <div class="dish-card">
+                    <div class="dish-card-img">
+                        <img src="https://pixabay.com/get/ga704341822e8efb3e265292a7522a20c0cd75b909dfd6a1efc3aa82cc6b782d00e84c1fe9adc7611498e70dd1e5314d20e917e009f1dd64df8310ab647d4f20f_1280.jpg" alt="Green Curry" loading="lazy">
+                        <span class="dish-spice spice-3">🌶️🌶️🌶️</span>
+                    </div>
+                    <div class="dish-card-body">
+                        <h4 class="dish-name">Keng Kiaow Wan (Green Curry)</h4>
+                        <p class="dish-desc">Coconut milk curry with green chili paste, Thai eggplant, bamboo shoots, and sweet basil.</p>
+                        <span class="dish-where">📍 Krua Apsorn / Street stalls</span>
+                    </div>
+                </div>
+                <div class="dish-card">
+                    <div class="dish-card-img">
+                        <img src="https://pixabay.com/get/g823c646de802d9c1287e7d1eed74b72f958bebdfb0d5c5fbe0617ff77fd7bea5f92fef57a59dba4fafc32ef3599ac4eac0eebb8366f8ec52d50acb8c2d0b319b_1280.jpg" alt="Tom Kha Kai" loading="lazy">
+                        <span class="dish-spice spice-1">🌶️</span>
+                    </div>
+                    <div class="dish-card-body">
+                        <h4 class="dish-name">Tom Kha Kai</h4>
+                        <p class="dish-desc">Coconut milk soup with galangal, lemongrass, kaffir lime leaves, and chicken. The gentler cousin of Tom Yum.</p>
+                        <span class="dish-where">📍 Any made-to-order restaurant</span>
+                    </div>
+                </div>
+                <div class="dish-card">
+                    <div class="dish-card-img">
+                        <img src="https://pixabay.com/get/gaaec52a6cba4bff35ac8fb42ec9a4591823466cc0e1b1a8a9002edc602cc741df94069e6ef4dea7effdc2e31b8bb76c5afe91fa7afbd72eda39b23ec064dba51_1280.jpg" alt="Pak Bung Fai Deng" loading="lazy">
+                        <span class="dish-spice spice-2">🌶️🌶️</span>
+                    </div>
+                    <div class="dish-card-body">
+                        <h4 class="dish-name">Pak Bung Fai Deng</h4>
+                        <p class="dish-desc">Stir-fried morning glory with garlic, chili, and soybean paste. The wok flame is half the show.</p>
+                        <span class="dish-where">📍 Any street stall — universal side dish</span>
+                    </div>
+                </div>
+                <div class="dish-card">
+                    <div class="dish-card-img">
+                        <img src="https://pixabay.com/get/g16980363c72c18e1d11f5e60e0a4d7bc374a52040a61c7b3111a1d07290fa79c3fc9ffcf0594d6acaedf6fdd7b4d4543e90c2032f4dd6787acd13167d3ff69ff_1280.jpg" alt="Pad Kee Mao" loading="lazy">
+                        <span class="dish-spice spice-3">🌶️🌶️🌶️</span>
+                    </div>
+                    <div class="dish-card-body">
+                        <h4 class="dish-name">Pad Kee Mao (Drunken Noodles)</h4>
+                        <p class="dish-desc">Wide rice noodles stir-fried with chili, garlic, holy basil. The after-party dish.</p>
+                        <span class="dish-where">📍 Any late-night street stall</span>
+                    </div>
+                </div>
+                <div class="dish-card">
+                    <div class="dish-card-img">
+                        <img src="https://pixabay.com/get/gbe8fc6ad9351e0927ae0cfc5b8bfb5ea66a8edd7b9ba166f00686796adb5a234e528e967cd6709ac149a9188700411c4afb9c563845610242d2b74c3beb62616_1280.jpg" alt="Pad See Ew" loading="lazy">
+                        <span class="dish-spice spice-0">Mild</span>
+                    </div>
+                    <div class="dish-card-body">
+                        <h4 class="dish-name">Pad See Ew</h4>
+                        <p class="dish-desc">Wide flat noodles with dark soy sauce, Chinese broccoli, egg. Zero spice, pure comfort.</p>
+                        <span class="dish-where">📍 Street stalls everywhere</span>
+                    </div>
+                </div>
+                <div class="dish-card">
+                    <div class="dish-card-img">
+                        <img src="https://pixabay.com/get/gc3a4e30ee4eeede59494672dd43d0cce8f44cd37f74992afb7557271c4d338777f4ff2c165f3a7bcd6e7c3322403110d2c67216605d9ab8f29a63beff0ba7c8e_1280.jpg" alt="Pad Kra Pao Muu Crob" loading="lazy">
+                        <span class="dish-spice spice-3">🌶️🌶️🌶️</span>
+                    </div>
+                    <div class="dish-card-body">
+                        <h4 class="dish-name">Pad Kra Pao Muu Crob</h4>
+                        <p class="dish-desc">Crispy pork belly version of Pad Kra Pao. Crunchy, spicy, aromatic with holy basil.</p>
+                        <span class="dish-where">📍 Three Little Birds — Mo Chit</span>
+                    </div>
+                </div>
+                <div class="dish-card">
+                    <div class="dish-card-img">
+                        <img src="https://pixabay.com/get/gca7827f5890276d7aae938b193b3ef5d3645058a586d1400e341409912e0968323c2b806f33d34b09c0fb557eb4a8c410932167c8c966fd945382bfc8fd749ec_1280.jpg" alt="Khao Pad" loading="lazy">
+                        <span class="dish-spice spice-1">🌶️</span>
+                    </div>
+                    <div class="dish-card-body">
+                        <h4 class="dish-name">Khao Pad (Thai Fried Rice)</h4>
+                        <p class="dish-desc">Simple wok-fried rice with egg, onion, and protein. The reliable staple when you can't decide.</p>
+                        <span class="dish-where">📍 Everywhere — always good</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Region: Isaan -->
+            <div class="food-region-header">
+                <h3 class="food-region-title">🔥 Isaan Cuisine (Northeast)</h3>
+                <p class="food-region-desc">Bold, raw, funky flavors. Heavy on grilled meats, sticky rice, and fermented fish. Not for the faint-hearted.</p>
+            </div>
+            <div class="food-dishes-grid">
+                <div class="dish-card">
+                    <div class="dish-card-img">
+                        <img src="https://pixabay.com/get/g7619a772e4a5ad393868e09eb94cac9e91ac8c330b0cc8c74ffcdaa59d2b4b6f3dfe5769eed6d3a09a9dd14b8fbe138c0db837b75c40c91914a12cf3405b87d9_1280.jpg" alt="Som Tam" loading="lazy">
+                        <span class="dish-spice spice-4">🌶️🌶️🌶️🌶️</span>
+                    </div>
+                    <div class="dish-card-body">
+                        <h4 class="dish-name">Som Tam (Papaya Salad)</h4>
+                        <p class="dish-desc">Shredded green papaya pounded with chili, lime, fish sauce, peanuts, dried shrimp, and tomato.</p>
+                        <span class="dish-where">📍 Som Tam Nua — Siam Square Soi 5</span>
+                    </div>
+                </div>
+                <div class="dish-card">
+                    <div class="dish-card-img">
+                        <img src="https://pixabay.com/get/ge670b9b643d995ff548a5da06e5ac946caad85767c8d6fd031194ee61b02ca5cd9b36af74fd206cc21a36b54221799c35f607eb9872bd9eba9b4e1acae76923b_1280.jpg" alt="Larb Moo" loading="lazy">
+                        <span class="dish-spice spice-3">🌶️🌶️🌶️</span>
+                    </div>
+                    <div class="dish-card-body">
+                        <h4 class="dish-name">Larb Moo (Minced Pork Salad)</h4>
+                        <p class="dish-desc">Minced pork tossed with lime, fish sauce, chili flakes, mint, and toasted rice powder.</p>
+                        <span class="dish-where">📍 Sabaijai / Baan Somtum</span>
+                    </div>
+                </div>
+                <div class="dish-card">
+                    <div class="dish-card-img">
+                        <img src="https://pixabay.com/get/gfc2796d851a4cc1452e25d08fa6e793941a5dd75ef2a88baf539e13f65224ad0236fe60ec48acfc479c82bb82ff2941de031a98ffa96c103e900a47f1381efcb_1280.jpg" alt="Gai Yang" loading="lazy">
+                        <span class="dish-spice spice-1">🌶️</span>
+                    </div>
+                    <div class="dish-card-body">
+                        <h4 class="dish-name">Gai Yang (Grilled Chicken)</h4>
+                        <p class="dish-desc">Marinated half-chicken grilled over charcoal. Eat with sticky rice and dipping sauce.</p>
+                        <span class="dish-where">📍 Polo Fried Chicken — Soi Polo</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Region: Northern -->
+            <div class="food-region-header">
+                <h3 class="food-region-title">🏔️ Northern Cuisine</h3>
+                <p class="food-region-desc">Mild, earthy, rustic. Influenced by Burma and Laos. Less spicy, more herbal. Comfort food.</p>
+            </div>
+            <div class="food-dishes-grid">
+                <div class="dish-card">
+                    <div class="dish-card-img">
+                        <img src="https://pixabay.com/get/gb8dd892e99a3079ac93b8e466d0eaa7362c9f9d910135794ae5d0f9eb0f9a46d36a3b614d6c209ef65c96cdeb28086dd0ea8d376af7dc42db2f5142aeb670936_1280.jpg" alt="Khao Soi" loading="lazy">
+                        <span class="dish-spice spice-2">🌶️🌶️</span>
+                    </div>
+                    <div class="dish-card-body">
+                        <h4 class="dish-name">Khao Soi</h4>
+                        <p class="dish-desc">Egg noodle curry soup topped with crispy noodles, pickled mustard greens, and shallots.</p>
+                        <span class="dish-where">📍 Ongtong Khao Soi — Ekamai</span>
+                    </div>
+                </div>
+                <div class="dish-card">
+                    <div class="dish-card-img">
+                        <img src="https://pixabay.com/get/g7ad90582bfd029242ac4a24dae617bb66cc715509d49add3e9bf77bee7e88f548d38e1ca92a729788a7d56d97e144a5fca8253c9a4d3729ee3ec5a9ece2a0ea3_1280.jpg" alt="Sai Oua" loading="lazy">
+                        <span class="dish-spice spice-2">🌶️🌶️</span>
+                    </div>
+                    <div class="dish-card-body">
+                        <h4 class="dish-name">Sai Oua (Northern Sausage)</h4>
+                        <p class="dish-desc">Herby pork sausage with lemongrass, kaffir lime, and chili paste. Grilled with sticky rice.</p>
+                        <span class="dish-where">📍 Huen Phen — Chiang Mai</span>
+                    </div>
+                </div>
+                <div class="dish-card">
+                    <div class="dish-card-img">
+                        <img src="https://pixabay.com/get/g74be5d1d5ce19f6e44af90b82fa8eb03aa7f5f9ca76fbff30a52332d46210052cab15fd63763eef826025c8f5adbcb1a5b7dcaa840f6befdbcf5b212c9ca313b_1280.jpg" alt="Kanom Jeen" loading="lazy">
+                        <span class="dish-spice spice-2">🌶️🌶️</span>
+                    </div>
+                    <div class="dish-card-body">
+                        <h4 class="dish-name">Kanom Jeen Nam Ngiao</h4>
+                        <p class="dish-desc">Rice noodles in a rich, tangy tomato-pork broth with blood cubes and dried chili.</p>
+                        <span class="dish-where">📍 Chatuchak Weekend Market</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Region: Southern -->
+            <div class="food-region-header">
+                <h3 class="food-region-title">🌊 Southern Cuisine</h3>
+                <p class="food-region-desc">The spiciest region. Turmeric-heavy, seafood-driven, unapologetically intense. Malaysian and Indian influences.</p>
+            </div>
+            <div class="food-dishes-grid">
+                <div class="dish-card">
+                    <div class="dish-card-img">
+                        <img src="https://pixabay.com/get/g55236969e436459c5658bfd8b3ce0e958e5dc1b7cda72e1d8441c0cd4dd35bf33099557dbc59b8498c5e0b78cc17b6615f4028c7acc0354c14e8a2e4c6ca4164_1280.jpg" alt="Gaeng Tai Pla" loading="lazy">
+                        <span class="dish-spice spice-5">🌶️🌶️🌶️🌶️🌶️</span>
+                    </div>
+                    <div class="dish-card-body">
+                        <h4 class="dish-name">Gaeng Tai Pla</h4>
+                        <p class="dish-desc">Fermented fish kidney curry. Extremely pungent and fiery. Not for beginners.</p>
+                        <span class="dish-where">📍 Khua Kling Pak Sod — Thonglor</span>
+                    </div>
+                </div>
+                <div class="dish-card">
+                    <div class="dish-card-img">
+                        <img src="https://pixabay.com/get/g06b321603c8a97271a1431f94b68facc6d032a28029ebf48da8c9bfc518fe8fac4aab38a4be7ab3ac7e7bcaf0a7e061a3a013844489d095eca7d2e54d08733f4_1280.jpg" alt="Khua Kling" loading="lazy">
+                        <span class="dish-spice spice-4">🌶️🌶️🌶️🌶️</span>
+                    </div>
+                    <div class="dish-card-body">
+                        <h4 class="dish-name">Khua Kling</h4>
+                        <p class="dish-desc">Dry-fried minced meat with aggressive curry paste — turmeric, lemongrass, and a wall of chili.</p>
+                        <span class="dish-where">📍 Khua Kling Pak Sod — Silom</span>
+                    </div>
+                </div>
+                <div class="dish-card">
+                    <div class="dish-card-img">
+                        <img src="https://pixabay.com/get/ga7b0c9ba4a00a801815df302417a931799fa1349693f3568998312445092ffa2293980cfbe8d892a93acd94c0b70565c2519da0ee37973e6f3014baf5ded43f4_1280.jpg" alt="Roti" loading="lazy">
+                        <span class="dish-spice spice-0">Mild</span>
+                    </div>
+                    <div class="dish-card-body">
+                        <h4 class="dish-name">Roti & Mataba</h4>
+                        <p class="dish-desc">Flaky pan-fried flatbread with condensed milk or curry. Muslim-Thai street snack.</p>
+                        <span class="dish-where">📍 Yaowarat night stalls</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Region: Desserts -->
+            <div class="food-region-header">
+                <h3 class="food-region-title">🍮 Thai Desserts (Khanom)</h3>
+                <p class="food-region-desc">Coconut, pandan, palm sugar, sticky rice — Thai sweets are an art form. Found at markets and street stalls.</p>
+            </div>
+            <div class="food-dishes-grid">
+                <div class="dish-card">
+                    <div class="dish-card-img">
+                        <img src="https://pixabay.com/get/gd0fc052f3fc0edb92b0cc54512a9dfb7645a980b1dda7499da6d0566d171d1fcd860caa9bf825b1400da3063ba0d6194ecba0b6362e7a72fb4b4106a115d1c6e_1280.jpg" alt="Kanom Tuay" loading="lazy">
+                        <span class="dish-spice spice-0">Mild</span>
+                    </div>
+                    <div class="dish-card-body">
+                        <h4 class="dish-name">Kanom Tuay</h4>
+                        <p class="dish-desc">Two-layered coconut pudding in tiny ceramic cups. Sweet pandan bottom, salted coconut top.</p>
+                        <span class="dish-where">📍 Or Tor Kor / Chatuchak Market</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Spice Scale Legend -->
+            <div class="spice-legend">
+                <h4 class="spice-legend-title">Spice Scale</h4>
+                <div class="spice-legend-items">
+                    <span class="spice-legend-item"><span class="spice-level spice-0">Mild</span> No heat</span>
+                    <span class="spice-legend-item"><span class="spice-level spice-1">🌶️</span> Gentle</span>
+                    <span class="spice-legend-item"><span class="spice-level spice-2">🌶️🌶️</span> Warm</span>
+                    <span class="spice-legend-item"><span class="spice-level spice-3">🌶️🌶️🌶️</span> Hot</span>
+                    <span class="spice-legend-item"><span class="spice-level spice-4">🌶️🌶️🌶️🌶️</span> Very hot</span>
+                    <span class="spice-legend-item"><span class="spice-level spice-5">🌶️🌶️🌶️🌶️🌶️</span> Painful</span>
                 </div>
             </div>
         </div>
